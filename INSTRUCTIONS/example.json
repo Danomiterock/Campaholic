@@ -1,0 +1,149 @@
+{
+    "RECDATA": [
+      {
+        "FacilityID": "233115",
+        "LegacyFacilityID": "71992",
+        "OrgFacilityID": "AN371992",
+        "ParentOrgID": "131",
+        "ParentRecAreaID": "1113",
+        "FacilityName": "UNION CREEK CAMPGROUND",
+        "FacilityDescription": "<h2>Overview:</h2>The Union Creek Campground is one of the largest Forest Service campgrounds in eastern Oregon. It's nestled on the northern shore of Phillips Reservoir amid mature Ponderosa pine, with a few sites offering views of the lake.<br /><br />\nThis camp is part of the Union Creek Recreation Area, which includes a picnic and day-use area. Union Creek Campground is set on three loops with separate walk-in tent camping, and it has four group sites that can accommodate from 60-100 people.<h4>Natural Features:</h4>Phillips Reservoir is a popular destination within the Wallowa-Whitman National Forest because it offers scenic views of the surrounding Elkhorn Mountains. The shoreline is forested with a mix of Ponderosa pine and various firs interspersed with small grasslands.<br /><br />\nVisitors enjoy several varieties of colorful wildflowers in the spring.<h4>Recreation:</h4>The campground is near a boat launch and a small, rocky swim beach. Activities include swimming, fishing, boating and water skiing.<br /><br />\nAnglers can fish for bass, trout and perch. There's an access point for the Phillips Lake Shoreline Trail, a 6.5-mile scenic trail for hiking and mountain biking.<h4>Facilities:</h4>The parking spurs are paved and gravel and large enough for any size RV. Several sites offer full hookups, and some others offer water and electric.<br /><br />\nUnits are equipped with picnic tables and grills. Drinking water and flush toilets are available. Some of the facilities are handicap-accessible.<h4>Nearby Attractions:</h4>The historic gold mining town of Sumpter is about 10 miles away. Visitors can explore the Sumpter Dredge State Heritage Park, browse the holiday weekend flea markets or take a ride on a historic steam locomotive.",
+        "FacilityTypeDescription": "Campground",
+        "FacilityUseFeeDescription": "",
+        "FacilityDirections": "From Baker City, Oregon, travel south on Highway 7 for about 18 miles. The campground and day-use entrance is signed on the left side of the road. Follow the signs in the Union Creek Recreation Area down to the various campground loops and areas.",
+        "FacilityPhone": "541-894-2332",
+        "FacilityEmail": "campgrounds@anthonylakes.com",
+        "FacilityReservationURL": "",
+        "FacilityMapURL": "",
+        "FacilityAdaAccess": "N",
+        "GEOJSON": {
+          "TYPE": "Point",
+          "COORDINATES": [
+            -118.0186111,
+            44.6969444
+          ]
+        },
+        "FacilityLongitude": -118.0186111,
+        "FacilityLatitude": 44.6969444,
+        "StayLimit": "",
+        "Keywords": "NW02,Phillips Reservoir",
+        "Reservable": false,
+        "Enabled": true,
+        "LastUpdatedDate": "2018-10-01",
+        "CAMPSITE": [
+          {
+            "CampsiteID": "string",
+            "CampsiteName": "string",
+            "ResourceLink": "string"
+          }
+        ],
+        "PERMITENTRANCE": [
+          {
+            "PermitEntranceID": "string",
+            "PermitEntranceName": "string",
+            "ResourceLink": "string"
+          }
+        ],
+        "TOUR": [
+          {
+            "TourID": "string",
+            "TourName": "string",
+            "ResourceLink": "string"
+          }
+        ],
+        "ORGANIZATION": [
+          {
+            "OrgID": "128",
+            "OrgName": "National Park Service",
+            "OrgImageURL": "nps.jpeg",
+            "OrgURLText": "",
+            "OrgURLAddress": "http://www.nps.gov",
+            "OrgType": "Department of the Interior",
+            "OrgAbbrevName": "NPS",
+            "OrgJurisdictionType": "Federal",
+            "OrgParentID": 139,
+            "LastUpdatedDate": "2018-10-01"
+          }
+        ],
+        "RECAREA": [
+          {
+            "RecAreaID": "1113",
+            "RecAreaName": "Wallowa Whitman National Forest",
+            "ResourceLink": "string"
+          }
+        ],
+        "FACILITYADDRESS": [
+          {
+            "FacilityAddressID": "10639",
+            "FacilityID": "203140",
+            "FacilityAddressType": "Default",
+            "FacilityStreetAddress1": "P.O. Box 150153",
+            "FacilityStreetAddress2": "",
+            "FacilityStreetAddress3": "",
+            "City": "Dallas",
+            "PostalCode": "75315-0153",
+            "AddressStateCode": "TX",
+            "AddressCountryCode": "USA",
+            "LastUpdatedDate": "2018-10-01"
+          }
+        ],
+        "ACTIVITY": [
+          {
+            "ActivityID": "string",
+            "FacilityID": "string",
+            "ActivityName": "string",
+            "FacilityActivityDescription": "string",
+            "FacilityActivityFeeDescription": "string"
+          }
+        ],
+        "EVENT": [
+          {
+            "EventID": "string",
+            "EventName": "string",
+            "ResourceLink": "string"
+          }
+        ],
+        "LINK": [
+          {
+            "EntityLinkID": "string",
+            "LinkType": "string",
+            "EntityID": "string",
+            "EntityType": "string",
+            "Title": "string",
+            "Description": "string",
+            "URL": "string"
+          }
+        ],
+        "MEDIA": [
+          {
+            "EntityMediaID": "string",
+            "MediaType": "Image",
+            "EntityID": "string",
+            "EntityType": "string",
+            "Title": "string",
+            "Subtitle": "string",
+            "Description": "string",
+            "EmbedCode": "string",
+            "Height": 0,
+            "Width": 0,
+            "IsPrimary": true,
+            "IsPreview": true,
+            "IsGallery": true,
+            "URL": "string",
+            "Credits": "string"
+          }
+        ]
+      }
+    ],
+    "METADATA": {
+      "RESULTS": {
+        "CURRENT_COUNT": 1,
+        "TOTAL_COUNT": 2110
+      },
+      "PARAMETERS": {
+        "QUERY": "",
+        "LIMIT": 25,
+        "OFFSET": 0
+      }
+    }
+  }
