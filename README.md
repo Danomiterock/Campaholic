@@ -10,14 +10,30 @@ This is an application that will assist the avid and novist camper to find campi
 As an avid and novist camper, I want to easily find good camping locations so that I can plan a camping trip and invite friends to join in the adventure.
 
 # Wireframe/Outline
+ ## Homepage
+ <img src="./INSTRUCTIONS/Homepage.png" atl="photo holder" width="50%" height="50%"></img>
 
+ ## Login/Signup page
+ <img src="./INSTRUCTIONS/Login-Signup.png" atl="photo holder" width="50%" height="50%"></img>
+
+ ## Profile page
+ <img src="./INSTRUCTIONS/Profile.png" atl="photo holder" width="50%" height="50%"></img>
+
+ ## Search page
+ <img src="./INSTRUCTIONS/Search.png" atl="photo holder" width="50%" height="50%"></img>
+
+ ## About
+ <img src="./INSTRUCTIONS/About.png" atl="photo holder" width="50%" height="50%"></img>
 
 
 # Tasks Breakdown
 
 Wes: Models, api/routes, Third-party API. 
+
 Triston: Third-party API, CSS, HTML, react-components.
+
 Dan: react-app.js, react-components, HTML.
+
 Myrla: react-pages, react-components, CSS. 
 
 *All contributors will participate in all phases of the app as needed. 
