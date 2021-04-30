@@ -1,12 +1,14 @@
 import React from "react";
-import Books from "./pages/Books";
-import Nav from "./components/Nav";
+import { Form, Navbar, Card, Button } from "react-bootstrap";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <div>
-      <Nav />
-      <Books />
+      <Navbar />
+      <Card />
+      <Form />
+      <Button />
     </div>
   );
 }
