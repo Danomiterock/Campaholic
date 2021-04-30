@@ -44,10 +44,10 @@ export const Search = () => {
                 custom
               >
                 <option value="0">Choose...</option>
-                <option value="1">AL</option>
-                <option value="2">AK</option>
-                <option value="3">AZ</option>
-                <option value="4">AR</option>
+                <option value="1">AK</option>
+                <option value="2">AL</option>
+                <option value="3">AR</option>
+                <option value="4">AZ</option>
                 <option value="5">CA</option>
                 <option value="6">CO</option>
                 <option value="7">CT</option>
@@ -55,10 +55,10 @@ export const Search = () => {
                 <option value="9">FL</option>
                 <option value="10">GA</option>
                 <option value="11">HI</option>
-                <option value="12">ID</option>
-                <option value="13">IL</option>
-                <option value="14">IN</option>
-                <option value="15">IA</option>
+                <option value="12">IA</option>
+                <option value="13">ID</option>
+                <option value="14">IL</option>
+                <option value="15">IN</option>
                 <option value="16">KS</option>
                 <option value="17">KY</option>
                 <option value="18">LA</option>
