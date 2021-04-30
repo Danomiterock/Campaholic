@@ -14,7 +14,10 @@ export const About = () => {
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
               </Card.Text>
-              <link variant="primary" href="https://competent-kepler-c24de2.netlify.app/">
+              <link
+                variant="primary"
+                href="https://competent-kepler-c24de2.netlify.app/"
+              >
                 View Portfolio
               </link>
             </Card.Body>
@@ -29,7 +32,10 @@ export const About = () => {
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
               </Card.Text>
-              <link variant="primary" href="https://tcb-react-portfolio.herokuapp.com/">
+              <link
+                variant="primary"
+                href="https://tcb-react-portfolio.herokuapp.com/"
+              >
                 View Portfolio
               </link>
             </Card.Body>
