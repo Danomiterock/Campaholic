@@ -1,6 +1,6 @@
 import React from "react";
 import { Form, Navbar, Card, Button } from "react-bootstrap";
-import Nav from "./components/Nav";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
