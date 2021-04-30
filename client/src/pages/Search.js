@@ -1,11 +1,32 @@
 import { Button } from "bootstrap";
 import React from "react";
-import { Col, Container, Form } from "react-bootstrap";
+import {
+  Button,
+  Col,
+  Container,
+  Form,
+  FormControl,
+  InputGroup,
+  MDBIcon,
+} from "react-bootstrap";
 
 export const Search = () => {
   return (
     <Container>
-      <div>
+      <div id="fieldsearch">
+        <InputGroup className="mb-3">
+          <MDBIcon icon="search" />
+          <FormControl
+            placeholder="Search by name or keyword"
+            aria-label="Search by name or keyword"
+            aria-describedby="basic-addon2"
+          />
+          <InputGroup.Append>
+            <Button variant="outline-secondary">Search</Button>
+          </InputGroup.Append>
+        </InputGroup>
+      </div>
+      <div id="dropdownsearch">
         <Form>
           <Form.Row className="align-items-center">
             <Col xs="auto" className="my-1">
