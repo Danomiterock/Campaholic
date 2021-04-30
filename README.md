@@ -14,10 +14,10 @@ As an avid and novice camper, I want to easily find good camping locations so th
  <img src="./INSTRUCTIONS/Homepage.png" atl="photo holder" width="50%" height="50%"></img>
 
  ## Login/Signup page
- <img src="./INSTRUCTIONS/Login-Signup.png" atl="photo holder" width="50%" height="50%"></img>
+ <img src="./INSTRUCTIONS/SignIn-SignUp.png" atl="photo holder" width="50%" height="50%"></img>
 
  ## Profile page
- <img src="./INSTRUCTIONS/Profile.png" atl="photo holder" width="50%" height="50%"></img>
+ <img src="./INSTRUCTIONS/Profilecampaholic.png" atl="photo holder" width="50%" height="50%"></img>
 
  ## Search page
  <img src="./INSTRUCTIONS/Search.png" atl="photo holder" width="50%" height="50%"></img>
