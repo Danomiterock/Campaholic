@@ -1,0 +1,24 @@
+Calling on Recreation API & collecting data
+
+// Base URL
+var baseUrl = "https://ridb.recreation.gov/api/v1/recareas?limit=1&offset=0&full=true&state=AZ&lastupdated=10-01-2018&apikey=aa8846cd-9998-4fc2-91d0-bfca54269cfd";
+
+// limit nuumber of records
+var limit = "limit=10";
+
+// Full data response
+var full = "&full=true";
+
+// User state query
+var state = "&state=AZ";
+
+// Will need to process.env this
+var apiKey= "&apikey=aa8846cd-9998-4fc2-91d0-bfca54269cfd";
+
+var apiUrl = baseUrl + limit + full + state + apiKey;
+
+// Send axios get request
+axios.get(apiUrl)
+.then(res => {
+        const data = res.data;
+        console.log(data)});
