@@ -1,0 +1,30 @@
+.primaryColor{
+    color: #F2DDB6;
+}
+.secondaryColor {
+    color: #7F8C1F;
+}
+.greenColor{
+    color:#547326; 
+}
+.brownColor{
+    color: #734217;
+}
+.darkColor{
+    color: #402E19;
+}
+.primaryBg{
+    background-color: #F2DDB6;
+}
+.secondaryBg{
+    background-color:#7F8C1F;
+}
+.greenBg{
+    background-color: #547326;
+}
+.brownBg{
+    background-color: #734217;
+}
+.darkBg{
+    background-color: #402E19;
+}
