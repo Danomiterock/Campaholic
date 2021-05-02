@@ -3,7 +3,7 @@ import {useLocation} from "react-router-dom"
 import {Navbar, Nav, Form, FormControl, Button} from 'react-bootstrap'
 import "../index.css"
 
-function Nav() {
+function Navbar () {
     const location = useLocation();
 
     return (
