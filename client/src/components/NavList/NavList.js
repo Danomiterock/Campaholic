@@ -11,8 +11,8 @@ function NavList() {
     <Navbar className="brownBg">
       <Nav className="mr-auto">
         <Nav.Link href="/"><p className="whiteColor">Home</p></Nav.Link>
-        <Nav.Link href="aboutme"><p className="whiteColor">About</p></Nav.Link>
-        <Nav.Link href="contact"><p className="whiteColor">Profile</p></Nav.Link>
+        <Nav.Link href="/About"><p className="whiteColor">About</p></Nav.Link>
+        <Nav.Link href="/Profile"><p className="whiteColor">Profile</p></Nav.Link>
       </Nav>
       <Form inline>
         <FormControl type="text" placeholder="Search" className="mr-sm-2" />
