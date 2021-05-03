@@ -1,0 +1,337 @@
+Keeping log of my contributions -TCB
+
+1. Connecting to the Recreation API
+
+Day Two
+
+Issues so far:
+
+Get request sends to Recreation API, returns 404 because header rejects CORS.
+MongoDB is most likely the cause of this problem. The proxy already routes to the 
+campaholic db through mongoose and package.json. Read some docs on NPM
+about using the require('cors') middleware and passing options through the header.
+Both attempts do not work when request tries to return an array of JSON objects
+with data. I am going to look at my old fetch methods from Project Five and try to 
+find a working key in the header that will allow HTTPS access to the API.
+
+Posts will need to collect user information from a form & inputs. We have done this
+multiple times in class whether it be a search or posting of content. This is when
+we began to use state and **State functions. I struggled with that portion 
+when I did the Google Books API project, worse case scenario the file jury rigs a function to 
+collect html element data and send it over to the posts section of the site.
+
+Experimenting with development of a Posts component. This component would allow us
+to worry less about writing different logic for both pages. The Posts component would
+take the input from the user in a <form> element and send the raw data to a user's personal feed
+and the home page, where other users observe the community's posts. A post would render under
+a user's feed on their own profile page and send the exact same data to render another post 
+on the home page. Transferring the data may require some exporting of variables to the Home page,
+which then renders a post containing that information, but how do we differentiate the incoming
+data between users? If the same function is running on multiple computers rendering multiple
+users' profile pages, does the server know to deliver individual user profile data without a database?
+
+Now here's where we introduce the database. When a user sends 
+a POST request to the database with the form's raw data, the Profile 
+page & the Home page would be able to send GET requests and render the Post data.
+It would make sense to use this method because mongoDB would 
+assign each transaction with the user's username. If we utilize the mongoDB database, 
+the home page will send a GET request to the database and display all the database's posts
+( I will have to set a limit once we are dealing with larger data sets).
+I will use the Trip.js model to store and render this data. So, the home page
+will run a findAll function in the API.js utility and display the Trip.js table
+data. I will have a talk with the team about repurposing the TripSchema keys because
+I think we may be perceiving different approaches towards data collection.
+If I am correct, the Trip model should collect a user's Post data.
+Although there is differences in thought I am grateful that Wes came up
+with a model and seed in case this API routing doesn't work. Saves my hide.
+
+Writing a schema for the post model will look like this.
+
+========================================
+Mongoose
+========================================
+
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const PostSchema = new Schema({
+
+    username: {
+        type: String,
+        required: true
+    },
+    date: {
+        type: Date,
+        default: Date.now()
+    },
+    location: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String
+    },
+    activities: {
+        type: [String]
+    },
+    friends: {
+        type: [String]
+    }
+});
+
+const Post = mongoose.model("post", PostSchema);
+
+module.exports = Post;
+
+This model will structure data, which will be sent and received
+using a findAll & create function in the API utility. 
+Remember to import the API utility on the Home page.
+Remember to import the API utility on the Profile page.
+If the team wants the Post interface on the Home page, this will be
+an easy fix.
+
+========================================
+Seeding the DB
+========================================
+const mongoose = require("mongoose");
+const db = require("../models");
+
+// This file empties the Posts collection and inserts the posts below
+
+mongoose.connect(
+  process.env.MONGODB_URI ||
+  "mongodb://localhost/campaholicdb"
+);
+
+const PostSeed = [{
+    username: "Triston Burns",
+    location: "Picacho Peak",
+    description: "Hiking on the Picacho Peak Trail!",
+    activities: ["Hiking", "Camping"],
+    friends: ["Bill", "Ted"]
+}]
+
+
+db.Post
+  .remove({})
+  .then(() => db.Post.collection.insertMany(PostSeed))
+  .then(data => {
+    console.log(data.result.n + " records inserted!");
+    process.exit(0);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
+
+========================================
+Post Controllers
+========================================
+
+const db = require("../models");
+
+// Defining methods for the postsController
+// Passing empty object will return all documents
+// In the Posts collection
+
+module.exports = {
+  findAll: function(req, res) {
+    db.Post
+      .find({})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+}
+
+========================================
+Routes 
+========================================
+
+const router = require("express").Router();
+const postsController = require("../../controllers/postsController");
+
+// Matches with "/api/books"
+router.route("/")
+  .get(postsController.findAll);
+
+index.js
+router.use("/posts", postRoutes);
+
+========================================
+Clientside API Routing
+========================================
+
+import axios from "axios";
+
+export default {
+
+  // Gets all posts
+  getPosts: function () {
+    return axios.get("/api/posts");
+  }
+}
+
+Components & Pages
+
+========================================
+Creating & modifying components
+========================================
+
+========================================
+Header Component
+========================================
+
+import React from "react";
+
+export function Header() {
+  return (
+    <header className="masthead">
+        <div className="headnav">
+            <h1> Campaholic </h1>
+            <Navbar />
+        </div>
+    </header>
+  );
+}
+
+export default Header;
+
+
+========================================
+Jumbotron Component
+========================================
+
+import React from "react";
+
+function Jumbotron() {
+  return (
+    <section className="jumbotron">
+        <div>
+            <h1>Nature is calling</h1>
+            <p>Find your next adventure.</p>
+        </div>
+    </section>
+  );
+}
+
+export default Jumbotron;
+
+========================================
+Posts Component
+========================================
+
+import React, { useState, useEffect } from "react";
+import API from "../utils/API";
+
+// Trying to think of a way to setup the component
+// to only render the user's own posts to their profile page
+// Using a conditional like if(username === "username"){etc.}
+// Would become a major security issue if someone could manipulate
+// the logic to display a differnt user's posts on their page.
+// This means that the best route to take is a comparison of unique
+// identifiers.
+// Right now will work on getting the home page done so I have material
+
+function Posts() {
+
+    // Setup our post's state
+    const [post, setPost] = useState([])
+    const [formObject, setFormObject] = useState({})
+
+    // Load all books and store them with setBooks
+  useEffect(() => {
+    loadBooks()
+  }, [])
+
+  // Loads all posts and sets them to posts
+  function loadPosts() {
+    API.getPosts()
+      .then(res => 
+        setPosts(res.data)
+      )
+      .catch(err => console.log(err));
+  };
+
+  return (
+    <section className="posts">
+
+    <h2>Feed</h2>
+
+            {posts.map(post => (
+            <article className="postcard" key={post._id}>
+                <div className="postheading">
+                <p>{post.username}</p>
+                <p>Posted: {post.date}</p>
+                </div>
+                <div className="postmain">
+                <img src="https://images.unsplash.com/photo-1590990771866-c172665b47ce?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1567&q=80 alt="location">
+                <p className="location">{post.location}</p>
+                <p className="description">{post.description}</p>
+                </div>
+                <div className="submain">
+                <p className="activities">Activities: </p>
+                <ul>
+                <li>{post.activities}</li> 
+                </ul>
+                <p className="friends">{post.username} is with:</p>
+                <ul className="friendlist">
+                <li>{post.friends}</li>
+                </ul>
+                </div>
+            </article>
+                ))}
+
+    </section>
+  );
+}
+
+export default Posts;
+
+========================================
+Footer Component
+========================================
+import React from 'react';
+
+function Footer(){
+    return (
+        <footer className="footer">
+        <p> Campaholic &copy 2021</p>
+        </footer>
+    )
+}
+
+export default Footer();
+
+========================================
+Completed Pages: About, LoginSignup, Profile, Search.
+ToDo Pages: Home, App.
+========================================
+
+========================================
+Home Page
+========================================
+
+import React from "react";
+import { Container } from "react-bootstrap";
+import Header from "./components/Header";
+import Navbar from "./components/Navbar";
+import Jumbotron from "./components/Jumobtron";
+import Posts from "./components/Posts";
+import Footer from "./components/Footer";
+
+
+export const Home = () => {
+  return (
+    <Container>
+       <div>
+       <Header />
+       <Navbar />
+       <Jumbotron />
+       <Posts />
+       <Footer />
+      </div>
+    </Container>
+  );
+};
+
+export default Home;

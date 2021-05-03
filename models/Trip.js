@@ -7,13 +7,13 @@ const TripSchema = new Schema({
       default: Date.now
   },
   length: {
-      type: Integer,
+      type: Number,
   },
   location: {
       type: String,
   },
   description: {
-      type: Text,
+      type: String,
   },
   activities: [],
   images: [],
