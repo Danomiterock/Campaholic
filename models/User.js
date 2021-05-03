@@ -3,6 +3,15 @@ const Schema = mongoose.Schema;
 
 //trips fills with all Trip instances with a user = to User._id
 const UserSchema = new Schema({
+  image:{
+    name: String,
+    desc: String,
+    img:
+    {
+        data: Buffer,
+        contentType: String
+    }
+  },
   email: {
     type: String,
     unique: true,
