@@ -44,6 +44,8 @@ function Posts() {
             />
             <p className="location">{post.location}</p>
             <p className="description">{post.description}</p>
+            <p className="statement">{post.statement}</p>
+
           </div>
           <div className="submain">
             <p className="activities">Activities: </p>

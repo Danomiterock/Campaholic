@@ -18,6 +18,10 @@ const PostSchema = new Schema({
     description: {
         type: String
     },
+    statement: {
+        type: String,
+    },
+    images: [{}],
     activities: [],
     friends: []
 });
