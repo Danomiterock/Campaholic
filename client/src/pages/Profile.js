@@ -1,7 +1,7 @@
 import React from "react";
 import { Media, Container, Row, Col, Form, FormControl, Button } from 'react-bootstrap'
-import profile from "../../public/assets/sampleProfile.png"
-import chiricahua from "../../public/assets/chiricahua.png"
+// import profile from "../../public/assets/sampleProfile.png"
+// import chiricahua from "../../public/assets/chiricahua.png"
 
 export const Profile = () => {
     return (
@@ -18,7 +18,7 @@ export const Profile = () => {
                             width={260}
                             height={280}
                             className="mr-3"
-                            src={profile}
+                            src="{profile}"
                             alt="Generic placeholder"
                         />
                         <Col className="darkColor bold-700 " style={{ background: "#F2DDB6", borderRadius: "25px", padding: "35px", margin: "15px" }}><h4>Username: Bob</h4><h4>Location: Tucson</h4></Col>
@@ -37,7 +37,7 @@ export const Profile = () => {
                                 width={500}
                                 height={400}
                                 className="mr-3"
-                                src={chiricahua}
+                                src="{chiricahua}"
                                 alt="Generic placeholder"
                             />
                             <Media.Body>
