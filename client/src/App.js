@@ -1,7 +1,7 @@
 import React from "react";
-import { Form, Navbar, Card, Button } from "react-bootstrap";
+// import { Form, Navbar, Card, Button } from "react-bootstrap";
 import API from "./utils/API";
-// import Navbar from "./components/Navbar";
+import Home from "./pages/Home"; 
 
 function App() {
 
@@ -12,10 +12,7 @@ function App() {
 
   return (
     <div>
-      <Navbar />
-      <Card />
-      <Form />
-      <Button onClick={handleFormSubmit}>Submit</Button>
+      <Home />    
     </div>
   );
 }

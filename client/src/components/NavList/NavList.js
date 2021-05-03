@@ -1,15 +1,14 @@
 import React from "react";
-import {useLocation} from "react-router-dom"
-import {Navbar, Nav, Form, FormControl, Button} from 'react-bootstrap'
-import "../index.css"
+import { BrowserRouter as useLocation } from "react-router-dom";
+import {Navbar, Nav, Form, FormControl, Button} from 'react-bootstrap';
+// import "../index.css"
 
-function Navbar () {
-    const location = useLocation();
+function NavList() {
+    // const location = useLocation();
 
     return (
         <>
     <Navbar className="brownBg">
-      <Navbar.Brand href="/"><h1 className="secondaryColor">Campaholic</h1></Navbar.Brand>
       <Nav className="mr-auto">
         <Nav.Link href="/"><p className="whiteColor">Home</p></Nav.Link>
         <Nav.Link href="aboutme"><p className="whiteColor">About</p></Nav.Link>
@@ -26,4 +25,4 @@ function Navbar () {
     );
   }
 
-export default Navbar;
+export default NavList;
