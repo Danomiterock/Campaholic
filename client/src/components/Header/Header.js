@@ -9,8 +9,8 @@ export function Header() {
         <div className="headnav">
             <h1> Campaholic </h1>            
         </div>
-        <Button href="/LoginSignup"><p className="loginSignup">Login</p></Button>
-        <Button href="/LoginSignup"><p className="loginSignup">Signup</p></Button>
+        <Button href="/LoginSignup"><p className="loginSignup">SignIn</p></Button>
+        <Button href="/LoginSignup"><p className="loginSignup">SignUp</p></Button>
     </header>
   );
 }
