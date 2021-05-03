@@ -7,7 +7,7 @@ import About from "./pages/About";
 import Profile from "./pages/Profile"; 
 import Header from "./components/Header"; 
 import NavList from "./components/NavList"; 
-
+import LoginSignup from "./pages/LoginSignup"
 
 function App() {
 
@@ -25,6 +25,7 @@ function App() {
       <Route exact path="/" component={Home} />
       <Route exact path="/about" component={About} />
       <Route exact path="/profile" component={Profile} />
+      <Route exact path="/LoginSignup" component={LoginSignup}/>
       </div>
       </Router>
     </>
