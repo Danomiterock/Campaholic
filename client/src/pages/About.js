@@ -13,12 +13,13 @@ export const About = () => {
               <Card.Text>
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
-              <a
-                variant="primary"
-                href="https://competent-kepler-c24de2.netlify.app/"
-              >
-                View Portfolio
-              </a>
+                <br />
+                <a
+                  variant="primary"
+                  href="https://competent-kepler-c24de2.netlify.app/"
+                >
+                  View Portfolio
+                </a>
               </Card.Text>
             </Card.Body>
           </Card>
@@ -31,12 +32,13 @@ export const About = () => {
               <Card.Text>
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
-              <a
-                variant="primary"
-                href="https://tcb-react-portfolio.herokuapp.com/"
-              >
-                View Portfolio
-              </a>
+                <br />
+                <a
+                  variant="primary"
+                  href="https://tcb-react-portfolio.herokuapp.com/"
+                >
+                  View Portfolio
+                </a>
               </Card.Text>
             </Card.Body>
           </Card>
@@ -49,9 +51,10 @@ export const About = () => {
               <Card.Text>
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
-              <a variant="primary" href="">
-                View Portfolio
-              </a>
+                <br />
+                <a variant="primary" href="">
+                  View Portfolio
+                </a>
               </Card.Text>
             </Card.Body>
           </Card>
@@ -64,9 +67,10 @@ export const About = () => {
               <Card.Text>
                 Dan is a former police officer with a strong background in
                 communication.
-              <a variant="primary" href="https://danomiterock.netlify.app/">
-                View Portfolio
-              </a>
+                <br />
+                <a variant="primary" href="https://danomiterock.netlify.app/">
+                  View Portfolio
+                </a>
               </Card.Text>
             </Card.Body>
           </Card>
