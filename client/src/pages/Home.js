@@ -1,17 +1,14 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-// import Header from "../components/Header";
-// import NavList from "../components/NavList";
-import Jumbotron from "../components/Jumbotron";
-import Posts from "../components/Posts";
-import Footer from "../components/Footer";
+import Jumbotron from "../components/Jumbotron/Jumbotron";
+import Posts from "../components/Posts/Posts";
+import Footer from "../components/Footer/Footer";
 
 
 export const Home = () => {
   return (
     <Container>
-       <div>
-       
+       <div>       
        <Jumbotron />
        <Posts />
        <Footer />
