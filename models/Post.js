@@ -18,12 +18,8 @@ const PostSchema = new Schema({
     description: {
         type: String
     },
-    activities: {
-        type: [String]
-    },
-    friends: {
-        type: [String]
-    }
+    activities: [],
+    friends: []
 });
 
 const Post = mongoose.model("post", PostSchema);

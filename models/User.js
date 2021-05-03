@@ -3,6 +3,12 @@ const Schema = mongoose.Schema;
 
 //trips fills with all Trip instances with a user = to User._id
 const UserSchema = new Schema({
+  first_name: {
+    type: String,
+  },
+  last_name: {
+    type: String,
+  },
   email: {
     type: String,
     unique: true,
@@ -16,11 +22,7 @@ const UserSchema = new Schema({
   },
   password: { 
     type: String, 
-  },
-  trips: [{
-    type: Schema.Types.ObjectId,
-    ref: "trip"
-  }]
+  }
 });
 
 const User = mongoose.model("user", UserSchema);
