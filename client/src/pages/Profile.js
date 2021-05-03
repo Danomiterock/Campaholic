@@ -62,7 +62,6 @@ export const Profile = () => {
                 style={{ borderRadius: "25px", margin: "15px" }}
                 width={500}
                 height={400}
-                className="mr-3"
                 src="{chiricahua}"
                 alt="Generic placeholder"
               />
