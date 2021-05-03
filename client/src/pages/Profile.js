@@ -23,7 +23,7 @@ export const Profile = () => {
               width={260}
               height={280}
               className="mr-3"
-              src="{profile}"
+              src="../assets/image/sampleProfile.png"
               alt="Generic placeholder"
             />
             <Col
