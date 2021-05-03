@@ -23,7 +23,7 @@ As an avid and novice camper, I want to easily find good camping locations so th
  <img src="./INSTRUCTIONS/Search.png" atl="photo holder" width="50%" height="50%"></img>
 
  ## About
- <img src="./INSTRUCTIONS/About.png" atl="photo holder" width="50%" height="50%"></img>
+ <img src="./INSTRUCTIONS/GroupInfo.png" atl="photo holder" width="50%" height="50%"></img>
 
 
 # Tasks Breakdown
