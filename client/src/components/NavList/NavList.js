@@ -1,7 +1,7 @@
 import React from "react";
 // import { BrowserRouter as useLocation } from "react-router-dom";
 import {Navbar, Nav, Form, FormControl, Button} from 'react-bootstrap';
-// import "../index.css"
+import "../../index.css"
 
 function NavList() {
     // const location = useLocation();
