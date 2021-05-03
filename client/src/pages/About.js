@@ -62,7 +62,9 @@ export const About = () => {
             <Card.Body>
               <Card.Title>Dan Lucas</Card.Title>
               <Card.Text>
-                Dan is a former police officer with a strong background in communication.              </Card.Text>
+                Dan is a former police officer with a strong background in
+                communication.
+              </Card.Text>
               <link variant="primary" href="https://danomiterock.netlify.app/">
                 View Portfolio
               </link>
