@@ -699,3 +699,13 @@ function App() {
 export default App;
 
 Day 5
+
+Starting on the Recreation API GET request fix today. Found a video
+on YouTube that discusses issues using Cross-origin resource sharing
+with Axios.
+
+Link: https://www.youtube.com/watch?v=hxyp_LkKDdk
+
+So far the tutorial talks about dozens of developers having the same issue
+when trying to make a call to a public API. So maybe the issue is not Mongoose
+and internal logic in axios'
