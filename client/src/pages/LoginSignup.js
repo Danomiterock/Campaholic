@@ -3,7 +3,7 @@ import { Button, Container, Form, FormLabel } from "react-bootstrap";
 
 export const LoginSignup = () => {
   return (
-    <Container>
+    <Container className="loginsignup">
       <div>
         <Form>
           <h3>Sign In</h3>
