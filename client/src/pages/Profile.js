@@ -13,7 +13,7 @@ import {
 
 export const Profile = () => {
   return (
-    <>
+    <div className="profile">
       <div className="headerProfile">
         <h1 className="brownColor textCenter font-60 bold-700">Profile</h1>
         <Container className="profilePic">
@@ -23,7 +23,7 @@ export const Profile = () => {
               width={260}
               height={280}
               className="mr-3"
-              src="{profile}"
+              src="../assets/image/sampleProfile.png"
               alt="Generic placeholder"
             />
             <Col
@@ -79,7 +79,7 @@ export const Profile = () => {
           </Container>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 export default Profile;

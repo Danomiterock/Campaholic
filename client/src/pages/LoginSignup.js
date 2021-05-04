@@ -45,9 +45,6 @@ export const LoginSignup = () => {
           <Button type="submit" className="btn btn-primary btn-block">
             Submit
           </Button>
-          <p className="forgot-password text-right">
-            Forgot <a href="#">password?</a>
-          </p>
         </Form>
       </div>
       <div>
