@@ -3,7 +3,7 @@ import { Container, Card, Row } from "react-bootstrap";
 
 export const About = () => {
   return (
-    <Container>
+    <Container className="about">
       <Row>
         <div>
           <Card style={{ width: "18rem" }}>

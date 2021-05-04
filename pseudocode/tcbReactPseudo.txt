@@ -1,6 +1,6 @@
 Keeping log of my contributions -TCB
 
-1. Connecting to the Recreation API
+1. Connecting to the Recreation API & Campaholic DB
 
 Day Two
 
@@ -335,3 +335,367 @@ export const Home = () => {
 };
 
 export default Home;
+
+Day Four
+
+2. Developing Home page & Search page styles
+
+Worked on the CSS for the home page last night.
+Without the styles, the page will send the GET request
+and display the single record of data in our Post collection
+to the Posts component in our React app. When I style the
+header & nav so far the server cannot connect to the localhost db
+for some reason. Will have to look through the code and see if the API routes
+are messing up because of the front end page's code. Shouldn't be the issue
+but deducing where the bug occurs is key to fixing the problem.
+
+Issues: 
+
+Team mentioning the need to relate users to posts. Talked about using unique identifiers
+for posts and users since mongoDB assigns _id keys but not necessarily unique to a user.
+I.e. if a user has an _id key of 1 and we use logic to render posts based on that key,
+React would only render a post with the same key. This is a problem because a user could
+have an _id key of 5 while a user with and _id of 3 sends a post that creates an _id of 5.
+To fix this, I suggested we use foreign keys. We will have to research docs on how to
+setup the keys. Slight concerns about whether we are using the right database structure
+for our data. We will have to start implementing relational logic, which is the kind of
+database that mongoDB attempts to avoid. There is a method for looking at foreign keys on a given
+record, which means mongoDB must allow for the creation of "relational" data. Will look into
+structuring a model to have documents contain foreign keys later.
+
+========================================
+Styles
+========================================
+For Home page
+
+/* * {
+    font-family: sans-serif;
+} */
+
+#root {
+  display: flex;
+}
+
+.masthead {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  position: fixed;
+  background-color: #fff;
+  width: 100%;
+  height: 200px;
+  -webkit-align-items: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.headnav {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  position: fixed;
+  width: 100%;
+}
+
+.header {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  color: #779c7a;
+  padding-top: 2em;
+  padding-left: 1em;
+  background-color: #f2f2f2;
+}
+
+.header h1 {
+  font-family: "Kadwa", 'sans-serif';
+  font-size: 3rem;
+  padding: 10px;
+}
+
+.header a {
+  font-family: "Karla", sans-serif;
+  font-size: 2rem;
+  padding: 15px;
+  text-decoration: none;
+  color: #779c7a;
+}
+
+.navbar {
+  position: relative;
+  display: -ms-flexbox;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-around;
+  padding: 0.5rem 1rem;
+}
+
+.navbar-nav {
+  display: -ms-flexbox;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+  /* background-image: url("https://images.unsplash.com/photo-1606335270813-52d62bfc5e69?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2777&q=80"); */
+  /* background-color: rgba(235, 236, 235, 0.7); */
+  width: 100%;
+}
+
+.navbar-nav a {
+  color: #395213;
+  text-decoration: none;
+  font-size: 2rem;
+  opacity: 1;
+}
+
+.content {
+  padding-top: 200px;
+}
+
+.jumbotron {
+  background-color: #eee;
+  background-image: url("https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1366&h=700&q=80");
+  height: 700px;
+  text-align: center;
+  z-index: 0;
+  margin: 0px;
+  border-radius: 0px;
+}
+
+.jumbotron div {
+  background-color: #293b0d;
+  color: #f2f2f2;
+  /* text-align: center; */
+  position: relative;
+  top: 1em;
+  font-size: 4rem;
+  border-radius: 10px;
+  opacity: 0.9;
+  /* margin: 0px; */
+  /* width: 50%; */
+  padding: 30px;
+  width: auto;
+  margin: 250px;
+  margin-top: 0;
+  font-family: "Kadwa";
+  /* margin-bottom: 400px; */
+  /* z-index: 0; */
+}
+
+.jumbotron div h1 {
+  font-family: "Kadwa";
+}
+
+.posts {
+  background-color: #f2ddb6;
+  font-family: sans-serif;
+  padding: 50px;
+}
+
+.posts h2 {
+  background-color: #395213;
+  width: 15%;
+  text-align: center;
+  color: #f2f2f2;
+  border-radius: 20px;
+}
+
+.posts img {
+  width: 30%;
+}
+
+.postcard {
+  /* padding: 100px; */
+  background-color: #f2f2f2;
+  border-radius: 70px;
+  margin: 0;
+  font-family: sans-serif;
+  /* margin-top: 0px; */
+}
+
+.postheading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: #5d3715;
+  font-size: 2rem;
+  color: #f2f2f2;
+  font-family: sans-serif;
+  border-top-right-radius: 100px;
+  border-top-left-radius: 100px;
+}
+
+.postmain {
+  flex-direction: row;
+  display: flex;
+  justify-content: space-around;
+  padding: 50px;
+}
+
+.postmain img {
+  border: 10px solid #5d3715;
+  border-radius: 5px;
+}
+
+.submain {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.footer {
+  text-align: center;
+  color: #f2f2f2;
+  background-color: #5d3715;
+  padding: 1px;
+}
+
+
+Components & Pages 
+========================================
+Header
+========================================
+
+import React from "react";
+import { Link } from "react-router-dom";
+import NavList from "../NavList";
+
+export function Header() {
+  return (
+    <div className="header">
+      {/* <img src="https://images.unsplash.com/photo-1552083375-1447ce886485?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
+      alt="header"
+      className="headerimg"
+      /> */}
+      <h1> Campaholic </h1>
+      <Link to="/Login">Login</Link>
+      <Link to="/Login">Sign Up</Link>
+    </div>
+  );
+}
+
+export default Header;
+
+========================================
+NavList
+========================================
+
+import React from "react";
+import { BrowserRouter as useLocation } from "react-router-dom";
+import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
+// import "../index.css"
+
+function NavList() {
+  // const location = useLocation();
+
+  return (
+    <>
+      <Navbar className="navbar">
+        <Nav>
+          <Nav.Link href="/">
+            <p>Home</p>
+          </Nav.Link>
+          <Nav.Link href="search">
+            <p>Search</p>
+          </Nav.Link>
+          <Nav.Link href="aboutme">
+            <p>About</p>
+          </Nav.Link>
+          <Nav.Link href="contact">
+            <p>Profile</p>
+          </Nav.Link>
+        </Nav>
+        {
+        /* Commenting this out because I believe
+        We want to have the Search bar on a different page 
+        <Form inline>
+          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+          <Button className="primaryColor" variant="outline-info">
+            Search
+          </Button>
+        </Form> */}
+      </Navbar>
+    </>
+  );
+}
+
+export default NavList;
+
+========================================
+Home
+========================================
+
+import React from "react";
+import { Container } from "react-bootstrap";
+// import Header from "../components/Header";
+// import NavList from "../components/NavList";
+import Jumbotron from "../components/Jumbotron";
+import Posts from "../components/Posts";
+import Footer from "../components/Footer";
+
+
+export const Home = () => {
+  return (
+    <Container>
+       <div>
+       <Jumbotron />
+       <Posts />
+       <Footer />
+      </div>
+    </Container>
+  );
+};
+
+export default Home;
+
+========================================
+App
+========================================
+
+import React from "react";
+// import { Form, Navbar, Card, Button } from "react-bootstrap";
+import API from "./utils/API";
+import Header from "./components/Header";
+import NavList from "./components/NavList";
+import Home from "./pages/Home";
+import { BrowserRouter as Router} from "react-router-dom";
+import "./styles/style.css";
+
+function App() {
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    API.searchAreas();
+  };
+
+  return (
+    <Router>
+    <div>
+    <header className="masthead">
+        <div className="headnav">
+          <Header />
+          <NavList />
+        </div>
+    </header>
+      <Route to="/" component={Home} />
+      <Route exact path="/about" component={About} />
+      <Route exact path="/profile" component={Profile} />
+    </div> 
+    </Router>
+  );
+}
+
+export default App;
+
+Day 5

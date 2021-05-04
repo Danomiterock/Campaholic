@@ -13,7 +13,7 @@ import {
 
 export const Profile = () => {
   return (
-    <>
+    <div className="profile">
       <div className="headerProfile">
         <h1 className="brownColor textCenter font-60 bold-700">Profile</h1>
         <Container className="profilePic">
@@ -79,7 +79,7 @@ export const Profile = () => {
           </Container>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 export default Profile;

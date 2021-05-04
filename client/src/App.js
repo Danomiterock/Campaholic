@@ -1,34 +1,36 @@
 import React from "react";
 // import { Form, Navbar, Card, Button } from "react-bootstrap";
 // import API from "./utils/API";
+import Header from "./components/Header";
+import NavList from "./components/NavList";
+import Home from "./pages/Home";
+import Search from "./pages/Search";
+import About from "./pages/About";
+import Profile from "./pages/Profile";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Home from "./pages/Home"; 
-import About from "./pages/About"; 
-import Profile from "./pages/Profile"; 
-import Header from "./components/Header"; 
-import NavList from "./components/NavList"; 
-import LoginSignup from "./pages/LoginSignup"
+import "./styles/style.css";
 
 function App() {
-
   // const handleFormSubmit = (event) => {
   //   event.preventDefault();
   //   API.searchAreas();
   // };
 
   return (
-      <>
-      <Router>
+    <Router>
       <div>
-      <Header />
-      <NavList />
-      <Route exact path="/" component={Home} />
-      <Route exact path="/about" component={About} />
-      <Route exact path="/profile" component={Profile} />
-      <Route exact path="/LoginSignup" component={LoginSignup}/>
+        <header className="masthead">
+          <div className="headnav">
+            <Header />
+            <NavList />
+          </div>
+        </header>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/Search" component={Search} />
+        <Route exact path="/About" component={About} />
+        <Route exact path="/Profile" component={Profile} />
       </div>
-      </Router>
-    </>
+    </Router>
   );
 }
 
