@@ -43,7 +43,7 @@ export const About = () => {
         </div>
         <div>
           <Card style={{ width: "18rem" }}>
-            <Card.Img variant="top" src="../pub;ic/assets/image/RonPic.jpg" />
+            <Card.Img variant="top" src="../public/assets/image/RonPic.jpg" />
             <Card.Body>
               <Card.Title>Wes Howard</Card.Title>
               <Card.Text>
