@@ -1,17 +1,13 @@
 import React from "react";
-import { Button } from "react-bootstrap";
-import "../../index.css"
-
+import { Link } from "react-router-dom";
 
 export function Header() {
   return (
-    <header className="masthead">
-        <div className="headnav">
-            <h1> Campaholic </h1>            
-        </div>
-        <Button href="/LoginSignup"><p className="loginSignup">SignIn</p></Button>
-        <Button href="/LoginSignup"><p className="loginSignup">SignUp</p></Button>
-    </header>
+    <div className="header">
+      <h1> Campaholic </h1>
+      <Link to="/LoginSignup">Login</Link>
+      <Link to="/LoginSignup">Sign Up</Link>
+    </div>
   );
 }
 

@@ -1,4 +1,3 @@
-import { Button } from "bootstrap";
 import React from "react";
 import {
   Button,
@@ -7,16 +6,16 @@ import {
   Form,
   FormControl,
   InputGroup,
-  MDBIcon,
+  // MDBIcon,
 } from "react-bootstrap";
 
 export const Search = () => {
 
   return (
-    <Container>
+    <Container className="search">
       <div id="fieldsearch">
         <InputGroup className="mb-3">
-          <MDBIcon icon="search" />
+          {/* <MDBIcon icon="search" /> */}
           <FormControl
             placeholder="Search by name or keyword"
             aria-label="Search by name or keyword"
