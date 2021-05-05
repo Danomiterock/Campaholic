@@ -1,12 +1,13 @@
 import React from "react";
-import { Container, Card, Row } from "react-bootstrap";
+import { Card, Row } from "react-bootstrap";
+import "../styles/About.css";
 
 export const About = () => {
   return (
-    <Container className="about">
-      <Row>
+    <div className="about">
+      <Row className="cardDeck">
         <div>
-          <Card style={{ width: "18rem" }}>
+          <Card className="aboutCard" >
             <Card.Img variant="top" src="../assets/image/myrla.jpg" />
             <Card.Body>
               <Card.Title>Myrla Flores</Card.Title>
@@ -24,8 +25,9 @@ export const About = () => {
             </Card.Body>
           </Card>
         </div>
+        <br/>
         <div>
-          <Card style={{ width: "18rem" }}>
+          <Card className="aboutCard" >
             <Card.Img variant="top" src="../assets/image/profpic.jpg" />
             <Card.Body>
               <Card.Title>Triston Burns</Card.Title>
@@ -43,24 +45,9 @@ export const About = () => {
             </Card.Body>
           </Card>
         </div>
+        <br/>
         <div>
-          <Card style={{ width: "18rem" }}>
-            <Card.Img variant="top" src="../assets/image/RonPic.jpg" />
-            <Card.Body>
-              <Card.Title>Wes Howard</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-                <br />
-                <a variant="primary" href="https://youtu.be/dQw4w9WgXcQ">
-                  View Portfolio
-                </a>
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </div>
-        <div>
-          <Card style={{ width: "18rem" }}>
+          <Card className="aboutCard" >
             <Card.Img variant="top" src="../assets/image/Portrait.jpg" />
             <Card.Body>
               <Card.Title>Dan Lucas</Card.Title>
@@ -75,8 +62,26 @@ export const About = () => {
             </Card.Body>
           </Card>
         </div>
+        <br/>
+        <div>
+          <Card className="aboutCard" >
+            <Card.Img variant="top" src="../assets/image/RonPic.jpg" />
+            <Card.Body>
+              <Card.Title>Wes Howard</Card.Title>
+              <Card.Text>
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+                <br />
+                <a variant="primary" href="https://youtu.be/dQw4w9WgXcQ">
+                  View Portfolio
+                </a>
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </div>
+        <br/>
       </Row>
-    </Container>
+    </div>
   );
 };
 export default About;

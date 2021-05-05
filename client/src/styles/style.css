@@ -2,10 +2,6 @@
     font-family: sans-serif;
 } */
 
-#root {
-  display: flex;
-}
-
 .masthead {
   display: -webkit-flex;
   display: flex;
@@ -197,6 +193,7 @@
 
 .about {
   padding: 200px;
+
 }
 
 .profile {
@@ -205,4 +202,5 @@
 
 .loginsignup {
   padding: 200px;
+
 }
