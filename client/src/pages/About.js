@@ -4,7 +4,7 @@ import "../styles/About.css";
 
 export const About = () => {
   return (
-    <Container className="about">
+    <div className="about">
       <Row className="cardDeck">
         <div>
           <Card className="aboutCard" >
@@ -81,7 +81,7 @@ export const About = () => {
         </div>
         <br/>
       </Row>
-    </Container>
+    </div>
   );
 };
 export default About;
