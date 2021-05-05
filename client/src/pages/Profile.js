@@ -38,7 +38,7 @@ export const Profile = () => {
               <h4>Username: Bob</h4>
               <h4>Location: Tucson</h4>
             </Col>
-            <Col className="whiteColor bold-700">
+            <Col className="brownColor bold-700">
               <h2>Plan your next trip below.</h2>
               <p>
                 <Form inline>
