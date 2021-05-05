@@ -1,8 +1,13 @@
 const express = require("express");
 
+import session from "express-session";
+import connectStore from "connect-mongo";
+
+
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
+const MongoStore = connectStore(session);
 const cors = require('cors');
 const PORT = process.env.PORT || 3001;
 
@@ -14,6 +19,23 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 app.use(cors());
+
+const sess = {
+  secret: 'Super secret secret',
+  cookie: {
+    sameSite: true,
+    maxAge: 100000
+  },
+  resave: false,
+  saveUninitialized: true,
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    collection: "session",
+
+  })
+};
+
+app.use(session(sess));
 
 // Add routes, both API and view
 app.use(routes);
