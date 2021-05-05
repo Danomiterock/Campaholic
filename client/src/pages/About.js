@@ -52,7 +52,7 @@ export const About = () => {
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
                 <br />
-                <a variant="primary" href="">
+                <a variant="primary" href="https://youtu.be/dQw4w9WgXcQ">
                   View Portfolio
                 </a>
               </Card.Text>
