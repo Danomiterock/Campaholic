@@ -41,7 +41,7 @@ module.exports = {
     },
     update: function (req, res) {
         db.User
-            .findOneAndUpdate({ _id: req.params.id }, req.body)
+            .findOneAndUpdate({ username: req.params.username }, req.body)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     }
@@ -52,3 +52,33 @@ module.exports = {
 
 
 //create will make a new user and hash a password for them... we will need to check the password with bcrypt.compare when the created user returns to log in.
+router.post("/login", async (req, res) => {
+    try {
+      const userData = await User.findOne({ where: { email: req.body.email } });
+  
+      if (!userData) {
+        res
+          .status(400)
+          .json({ message: "Incorrect email or password, please try again" });
+        return;
+      }
+  
+      const validPassword = await userData.checkPassword(req.body.password);
+  
+      if (!validPassword) {
+        res
+          .status(400)
+          .json({ message: "Incorrect email or password, please try again" });
+        return;
+      }
+  
+      req.session.save(() => {
+        req.session.user_id = userData.id;
+        req.session.logged_in = true;
+  
+        res.json({ user: userData, message: "You are now logged in!" });
+      });
+    } catch (err) {
+      res.status(400).json(err);
+    }
+  });
