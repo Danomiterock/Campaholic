@@ -1,10 +1,17 @@
 import React from "react";
-import { Button, Container, Form, FormLabel } from "react-bootstrap";
+import {
+  Button,
+  Card,
+  CardDeck,
+  Form,
+  FormLabel,
+} from "react-bootstrap";
+import "./LoginSignup.css";
 
 export const LoginSignup = () => {
   return (
-    <Container className="loginsignup">
-      <div>
+    <CardDeck className="loginsignup">
+      <Card className="LoginSignupCard">
         <Form>
           <h3>Sign In</h3>
 
@@ -46,56 +53,61 @@ export const LoginSignup = () => {
             Submit
           </Button>
         </Form>
-      </div>
+      </Card>
+
+      <br />
+
       <div>
-        <Form>
-          <h3>Sign Up</h3>
+        <Card className="LoginSignupCard">
+          <Form>
+            <h3>Sign Up</h3>
 
-          <div className="form-group">
-            <FormLabel>First name</FormLabel>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="First name"
-            />
-          </div>
+            <div className="form-group">
+              <FormLabel>First name</FormLabel>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="First name"
+              />
+            </div>
 
-          <div className="form-group">
-            <FormLabel>Last name</FormLabel>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Last name"
-            />
-          </div>
+            <div className="form-group">
+              <FormLabel>Last name</FormLabel>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Last name"
+              />
+            </div>
 
-          <div className="form-group">
-            <FormLabel>Email address</FormLabel>
-            <input
-              type="email"
-              className="form-control"
-              placeholder="Enter email"
-            />
-          </div>
+            <div className="form-group">
+              <FormLabel>Email address</FormLabel>
+              <input
+                type="email"
+                className="form-control"
+                placeholder="Enter email"
+              />
+            </div>
 
-          <div className="form-group">
-            <FormLabel>Password</FormLabel>
-            <input
-              type="password"
-              className="form-control"
-              placeholder="Enter password"
-            />
-          </div>
+            <div className="form-group">
+              <FormLabel>Password</FormLabel>
+              <input
+                type="password"
+                className="form-control"
+                placeholder="Enter password"
+              />
+            </div>
 
-          <Button type="submit" className="btn btn-primary btn-block">
-            Sign Up
-          </Button>
-          <p className="forgot-password text-right">
-            Already registered <a href="#">sign in?</a>
-          </p>
-        </Form>
+            <Button type="submit" className="btn btn-primary btn-block">
+              Sign Up
+            </Button>
+            <p className="forgot-password text-right">
+              Already registered <a href="#">sign in?</a>
+            </p>
+          </Form>
+        </Card>
       </div>
-    </Container>
+    </CardDeck>
   );
 };
 
