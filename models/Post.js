@@ -21,9 +21,24 @@ const PostSchema = new Schema({
     statement: {
         type: String,
     },
-    images: [{}],
-    activities: [],
-    friends: []
+    images: [{
+        title: {
+            type: String,
+        },
+        url: {
+            type: String,
+        }
+    }],
+    activities: [{
+        title: {
+            type: String,
+        }
+    }],
+    friends: [{
+        username: {
+            type: String,
+        }
+    }]
 });
 
 const Post = mongoose.model("post", PostSchema);
