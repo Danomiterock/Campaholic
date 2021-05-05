@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Card, CardDeck, Form, FormLabel } from "react-bootstrap";
-import "./loginSignup.css";
+import "./LoginSignup.css";
 
 export const LoginSignup = () => {
   return (
@@ -43,9 +43,9 @@ export const LoginSignup = () => {
             </div>
           </div>
 
-          <Button type="submit" className="btn btn-primary btn-block">
+          <Button type="submit" className="btn btn-primary btn-block :hover">
             Submit
-          </Button>
+          </Button >
           <p className="forgot-password text-right">
             Forgot <a href="#">password?</a>
           </p>
@@ -98,9 +98,6 @@ export const LoginSignup = () => {
             <Button type="submit" className="btn btn-primary btn-block">
               Sign Up
             </Button>
-            <p className="forgot-password text-right">
-              Already registered <a href="#">sign in?</a>
-            </p>
           </Form>
         </Card>
       </div>

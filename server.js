@@ -3,7 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
-const cors = require('cors');
+const cors = require("cors");
 const PORT = process.env.PORT || 3001;
 
 // Define middleware here
@@ -20,16 +20,16 @@ app.use(routes);
 
 // Connect to the Mongo DB
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/campaholicdb"
+  process.env.MONGODB_URI || "mongodb://localhost/campaholicdb",
+  { useUnifiedTopology: true, useCreateIndex: true }
 );
 
 //If no API routes are hit, send the React app
-app.use(function(req, res){
+app.use(function (req, res) {
   res.sendFile(path.join(__dirname, "client/build/index.html"));
 });
 
-
 // Start the API server
-app.listen(PORT, function() {
+app.listen(PORT, function () {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
