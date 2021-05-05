@@ -8,8 +8,8 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
-// import profile from "../../public/assets/sampleProfile.png"
-// import chiricahua from "../../public/assets/chiricahua.png"
+import "../styles/Profile.css";
+
 
 export const Profile = () => {
   return (

@@ -1,0 +1,23 @@
+.profile {
+    background-color: #f2ddb6;
+    background: url("../styles/images/mountainReflection.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+   
+  }
+  .profilePic{
+    border-color:#F2DDB6;
+    border-radius: 25px;
+    
+}
+.lastTrip{
+    background-color: #547326;
+    border-radius: 25px;  
+    border: rgb(61, 42, 2) solid 10px;
+}
+.lastTripPic{
+    border-radius: 25px;
+
+}
