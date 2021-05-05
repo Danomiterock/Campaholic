@@ -49,15 +49,15 @@ html,
   width: 450px;
   margin: auto;
   background: #f2f2f2;
-  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  box-shadow: 3px 14px 80px rgba(34, 35, 58, 0.2);
   padding: 40px 55px 45px 55px;
-  border-radius: 15px;
+  border-radius: 35px;
   transition: all 0.3s;
 }
 
 .auth-wrapper .form-control:focus {
   border-color: #167bff;
-  box-shadow: none;
+  box-shadow: none; 
 }
 
 .auth-wrapper h3 {
@@ -86,7 +86,17 @@ html,
 
 .LoginSignupCard {
   display: flex;
+  background: #f2f2f2;
+  border-radius: 5%;
   padding: 20px;
   width: 500px;
-  height: 500px;
+  height: auto;
+  box-shadow: 0 4px 6px #000;
+  
+  
+}
+
+.btn-primary {
+  background-color: #23518C;
+     
 }
