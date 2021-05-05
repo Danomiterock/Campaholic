@@ -2,10 +2,6 @@
     font-family: sans-serif;
 } */
 
-#root {
-  display: flex;
-}
-
 .masthead {
   display: -webkit-flex;
   display: flex;
