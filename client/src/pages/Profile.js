@@ -62,7 +62,7 @@ export const Profile = () => {
                 style={{ borderRadius: "25px", margin: "15px" }}
                 width={500}
                 height={400}
-                src="{chiricahua}"
+                src="../assets/image/chiricahua.png"
                 alt="Generic placeholder"
               />
               <Media.Body>
