@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Card, CardDeck, Form, FormLabel } from "react-bootstrap";
-import "./loginSignup.css";
+import "./LoginSignup.css";
 
 export const LoginSignup = () => {
   return (
