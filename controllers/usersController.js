@@ -1,5 +1,6 @@
 const db = require("../models");
 const bcrypt = require("bcrypt")
+const router = require("express").Router();
 // Defining methods for the usersController
 // Passing empty object will return all documents
 // In the Users collection
