@@ -9,6 +9,7 @@ router.route("/")
 router.route("/:username")
   .get(usersController.findOne)
   .put(usersController.update)
+
 module.exports = router;
 
-//the :username route is going to findOne user by username??
+//the :username route is going to findOne user by username

@@ -7,28 +7,36 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/campaholicdb");
 
 const UserSeed = [
   {
+    first_name: "Ahmed",
+    last_name: "McStuffy",
     email: "Ahmed@.fake.com",
     username: "AdventurerAhmed",
     password: "asdf1234",
-    trips: [],
+    posts: [],
   },
   {
+    first_name: "Robert",
+    last_name: "Uppy",
     email: "Bobby@.fake.com",
     username: "BackyardBobby",
     password: "asdf1234",
-    trips: [],
+    posts: [],
   },
   {
+    first_name: "Caroline",
+    last_name: "Smith",
     email: "Caroline@.fake.com",
     username: "CarolineTheExtreme",
     password: "asdf1234",
-    trips: [],
+    posts: [],
   },
   {
+    first_name: "Dude",
+    last_name: "Frankenstein",
     email: "Dude@.fake.com",
     username: "TheDude",
     password: "asdf1234",
-    trips: [],
+    posts: [],
   },
 ];
 
