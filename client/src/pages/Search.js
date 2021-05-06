@@ -2,17 +2,18 @@ import React from "react";
 import {
   Button,
   Col,
-  Container,
   Form,
   FormControl,
   InputGroup,
   // MDBIcon,
 } from "react-bootstrap";
+import "../styles/Search.css";
 
 export const Search = () => {
 
   return (
-    <Container className="search">
+    <div
+     className="search">
       <div id="fieldsearch">
         <InputGroup className="mb-3">
           {/* <MDBIcon icon="search" /> */}
@@ -111,7 +112,7 @@ export const Search = () => {
           </Form.Row>
         </Form>
       </div>
-    </Container>
+    </div>
   );
 };
 

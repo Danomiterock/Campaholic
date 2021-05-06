@@ -1,0 +1,10 @@
+.search {
+    background-color: #F2DDB6;
+    background-image: url("../styles/images/desert.jpg");
+    background-size: cover;
+    /* background-repeat: no-repeat; */
+    width: 100%;
+    height: 100%;
+   
+
+}
