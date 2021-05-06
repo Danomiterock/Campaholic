@@ -9,7 +9,6 @@ const routes = require("./routes");
 const app = express();
 const MongoStore = connectStore(session);
 const cors = require('cors');
-const cors = require("cors");
 const PORT = process.env.PORT || 3001;
 
 // Define middleware here
