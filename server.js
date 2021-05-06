@@ -1,13 +1,13 @@
 const express = require("express");
 
-import session from "express-session";
-import connectStore from "connect-mongo";
+const session=require ('express-session');
+const connectStore= require ('connect-mongo');
 
 
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
-const MongoStore = connectStore(session);
+const MongoStore = new connectStore('session');
 const cors = require('cors');
 const PORT = process.env.PORT || 3001;
 
