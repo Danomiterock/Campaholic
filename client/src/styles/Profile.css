@@ -10,6 +10,7 @@
   .profilePic{
     border-color:#F2DDB6;
     border-radius: 25px;
+    /* color: #547326; */
     
 }
 .lastTrip{
@@ -20,4 +21,8 @@
 .lastTripPic{
     border-radius: 25px;
 
+}
+.brownColor{
+    padding: 45px;
+    color: #547326;
 }

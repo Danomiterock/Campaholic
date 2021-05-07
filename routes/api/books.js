@@ -12,7 +12,7 @@ router
   .get(postsController.findById)
   .put(postsController.update)
   .delete(postsController.remove);
-
+  
 module.exports = router;
 
 
