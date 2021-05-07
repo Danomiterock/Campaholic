@@ -6,9 +6,9 @@ router.route("/")
   .get(usersController.findAll)
   .post(usersController.create)
 
-router.route("/:username")
+router.route("/login")
   .get(usersController.findOne)
-  .put(usersController.update)
+//   .put(usersController.update)
 
 module.exports = router;
 
