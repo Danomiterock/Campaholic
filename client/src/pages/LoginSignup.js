@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+
 import {
   Button,
   Card,
@@ -7,14 +8,55 @@ import {
   FormLabel,
 } from "react-bootstrap";
 import "../styles/LoginSignup.css";
+import axios from "axios";
 
 
 export const LoginSignup = () => {
+
+  const [first_name, setFirstName] = useState("");
+  const [last_name, setLastName] = useState("");
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+
+  console.log(first_name);
+
+  const signupHandler = (e) => {
+    e.preventDefault();
+    axios.post("/api/users", {
+      first_name,
+      last_name,
+      username,
+      email,
+      password
+    }).then((res)=> {
+      console.log(res)
+    }).catch((err) =>{
+      console.log(err)
+    })
+
+  }
+  const loginHandler = (e) => {
+    e.preventDefault();
+    axios.get("/api/login", {
+     
+      loginEmail,
+      loginPassword
+    }).then((res)=> {
+      console.log(res)
+    }).catch((err) =>{
+      console.log(err)
+    })
+
+  }
+
   return (
     <div className="loginpage">
       <CardDeck className="loginsignup">
         <Card className="LoginSignupCard">
-          <Form>
+          <Form onSubmit={(event) => signupHandler(event)}>
             <h3>Sign In</h3>
 
             <div className="form-group">
@@ -23,6 +65,7 @@ export const LoginSignup = () => {
                 type="email"
                 className="form-control"
                 placeholder="Enter email"
+                onChange={(e) => { setLoginEmail(e.target.value) }}
               />
             </div>
 
@@ -32,6 +75,7 @@ export const LoginSignup = () => {
                 type="password"
                 className="form-control"
                 placeholder="Enter password"
+                onChange={(e) => { setLoginPassword(e.target.value) }}
               />
             </div>
 
@@ -61,7 +105,7 @@ export const LoginSignup = () => {
 
         <div>
           <Card className="LoginSignupCard">
-            <Form>
+            <Form onSubmit={(event) => signupHandler(event)}>
               <h3>Sign Up</h3>
 
               <div className="form-group">
@@ -70,6 +114,7 @@ export const LoginSignup = () => {
                   type="text"
                   className="form-control"
                   placeholder="First name"
+                  onChange={(e) => { setFirstName(e.target.value) }}
                 />
               </div>
 
@@ -79,6 +124,16 @@ export const LoginSignup = () => {
                   type="text"
                   className="form-control"
                   placeholder="Last name"
+                  onChange={(e) => { setLastName(e.target.value) }}
+                />
+              </div>
+              <div className="form-group">
+                <FormLabel>Username</FormLabel>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter Username"
+                  onChange={(e) => { setUsername(e.target.value) }}
                 />
               </div>
 
@@ -88,6 +143,7 @@ export const LoginSignup = () => {
                   type="email"
                   className="form-control"
                   placeholder="Enter email"
+                  onChange={(e) => { setEmail(e.target.value) }}
                 />
               </div>
 
@@ -97,6 +153,7 @@ export const LoginSignup = () => {
                   type="password"
                   className="form-control"
                   placeholder="Enter password"
+                  onChange={(e) => { setPassword(e.target.value) }}
                 />
               </div>
 
