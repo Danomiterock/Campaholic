@@ -5,7 +5,8 @@ const connectStore = require('connect-mongo');
 
 
 
-const {MONGODB_URI} = require('./config/database')
+const { MONGODB_URI } = require('./config/database')
+
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
@@ -19,17 +20,19 @@ if (process.env.NODE_ENV === "production") {
 }
 app.use(cors());
 
+
 // Connect to the Mongo DB
 mongoose.connect(
     process.env.MONGODB_URI || "mongodb://localhost/campaholicdb",
     { useUnifiedTopology: true, useCreateIndex: true }
-    );
-    
-const MongoStore = new connectStore({uri: MONGODB_URI, collection: 'session'});
-   
+);
+//setting up connect-mongo store
+const MongoStore = new MongoStore({ MONGODB_URI, collection:'session' });
+
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 
 const sess = {
     secret: 'Super secret secret',
@@ -39,13 +42,13 @@ const sess = {
     },
     resave: false,
     saveUninitialized: true,
-    store: new MongoStore({
+    store: MongoStore({
         mongooseConnection: mongoose.connection,
         collection: "session",
 
     })
 };
-
+//express session
 app.use(session(sess));
 
 // Add routes, both API and view
