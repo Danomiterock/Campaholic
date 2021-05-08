@@ -36,26 +36,26 @@ if (process.env.NODE_ENV === "production") {
     // })
     
     // Connect to the Mongo DB
-    // mongoose.connect(
-        //     process.env.MONGODB_URI || "mongodb://localhost/campaholicdb",
-        //     { useUnifiedTopology: true, useCreateIndex: true }
-        // );
-        //setting up connect-mongo store
-        //  const mongoStore = new MongoStore({ MONGODB_URI, collection:'session' });
-        
-        // // Define middleware here
-        
-        // app.use(require('express-session')({
-            //     secret: 'This is a secret',
-            //     cookie: {
-                //         maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
-                //     },
-                //     store: store
-                // }));
-                
-                
+    //setting up connect-mongo store
+    //  const mongoStore = new MongoStore({ MONGODB_URI, collection:'session' });
+    
+    // // Define middleware here
+    
+    // app.use(require('express-session')({
+        //     secret: 'This is a secret',
+        //     cookie: {
+            //         maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
+            //     },
+            //     store: store
+            // }));
+            
+            
 app.use(routes);
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/campaholicdb");
+mongoose.connect(
+    process.env.MONGODB_URI || "mongodb://localhost/campaholicdb",
+    { useUnifiedTopology: true, useCreateIndex: true, useNewUrlParser: true }
+                );
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/campaholicdb");
 
 
 //If no API routes are hit, send the React app
