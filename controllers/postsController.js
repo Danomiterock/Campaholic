@@ -7,13 +7,13 @@ const db = require("../models");
 module.exports = {
   findAll: function (req, res) {
     db.Post
-      .find({})
+      .find(req.query)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   findRecent: function (req, res) {
     db.Post
-      .find({}).sort({$natural: 1}).limit(10)
+      .find(req.query).sort({$natural: 1}).limit(10)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err))
   },

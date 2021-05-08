@@ -36,7 +36,7 @@
   color: #779c7a;
   padding-top: 2em;
   padding-left: 1em;
-  background-color: #f2f2f2;
+  background-color: #5d3715;
 }
 
 .header h1 {
@@ -63,7 +63,8 @@
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-around;
-  padding: 0.5rem 1rem;
+  padding: 0.1rem 8rem;
+  background-color: #F2DDB6;
 }
 
 .navbar-nav {
@@ -79,7 +80,7 @@
 }
 
 .navbar-nav a {
-  color: #395213;
+  color: #5d3715;
   text-decoration: none;
   font-size: 2rem;
   opacity: 1;
