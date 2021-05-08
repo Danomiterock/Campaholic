@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 export const Home = () => {
   const [recentPosts, setRecentPosts] = useState();
 
-n  useEffect(() => this.get("api/posts/recent").then(data => setRecentPosts(data)), []) 
+//   useEffect(() => this.get("api/posts/recent").then(data => setRecentPosts(data)), []) 
   
   
   
