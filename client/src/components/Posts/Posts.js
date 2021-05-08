@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-//import API from "../../utils/API";
+import API from "../../utils/API";
 
 // Trying to think of a way to setup the component
 // to only render the user's own posts to their profile page
@@ -10,24 +10,25 @@ import React, { useState, useEffect } from "react";
 // identifiers.
 // Right now will work on getting the home page done so I have material
 
-function Posts({ posts }) {
+function Posts() {
 
 
-  // // Setup our post's state
-  // const [posts, setPosts] = useState([]);
+
+  // Setup our post's state
+  const [posts, setPosts] = useState([]);
   // //   const [formObject, setFormObject] = useState({});
 
-  // // Load all posts and store them with setPosts
-  // useEffect(() => {
-  //   loadPosts();
-  // }, []);
+  // Load all posts and store them with setPosts
+  useEffect(() => {
+    loadPosts();
+  }, []);
 
-  // // Loads all posts and sets them to posts
-  // function loadPosts() {
-  //   API.getPosts()
-  //     .then((res) => setPosts(res.data))
-  //     .catch((err) => console.log(err));
-  //}
+  // Loads all posts and sets them to posts
+  function loadPosts() {
+    API.getPosts()
+      .then((res) => setPosts(res.data))
+      .catch((err) => console.log(err));
+  }
 
   return (
     <section className="posts">
