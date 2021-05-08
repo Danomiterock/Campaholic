@@ -1,6 +1,10 @@
 # Campaholic
 
 ## Link to Application
+https://campaholic.herokuapp.com/
+
+## Link to Repo
+https://github.com/Danomiterock/Campaholic
 
 # Description
 This is an application that will assist the avid and novice camper to find camping locations and plan a camping trip. The app will give the user information on camping sites such as campsite description, images, available activities, available events, and nearby locations such as recreational areas. The app will allow the user to invite friends to join in the camping trip. The user will also be able to determine the length of the trip. The user(s) will be able to communicate about their planned trip through the site by posts/comments. 
@@ -37,3 +41,5 @@ Dan: react-app.js, react-components, HTML.
 Myrla: react-pages, react-components, CSS. 
 
 *All contributors will participate in all phases of the app as needed. 
+
+

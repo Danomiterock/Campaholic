@@ -1,5 +1,7 @@
 
-import React from "react";
+import React, { useState, useEffect } from "react";
+import API from "../../utils/API";
+import moment from "moment";
 
 
 
@@ -15,10 +17,11 @@ function Posts( {posts} ) {
 
       {posts ? 
         posts.map((post) => (
-          <article className="postcard" key={post._id}>
+          <article className="postcard">
+            {console.log(post)}
             <div className="postheading">
               <p>{post.username}</p>
-              <p>Posted: {post.date}</p>
+              <p>Posted: {moment(post.date).format('MMMM Do YYYY, h:mm:ss a')}</p>
             </div>
             <div className="postmain">
               <img
@@ -33,11 +36,11 @@ function Posts( {posts} ) {
             <div className="submain">
               <p className="activities">Activities: </p>
               <ul>
-                <li>{post.activities}</li>
+                <li>{post.activities.map(activity => <h3 key={activity.title}>{activity.title}</h3>)}</li>
               </ul>
               <p className="friends">{post.username} is with:</p>
               <ul className="friendlist">
-                <li>{post.friends}</li>
+                <li>{post.friends.map(friend => <h3 key={friend.username}>{friend.username}</h3>)}</li>
               </ul>
             </div>
           </article>
