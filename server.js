@@ -36,24 +36,20 @@ if (process.env.NODE_ENV === "production") {
     // })
     
     // Connect to the Mongo DB
-    // mongoose.connect(
-        //     process.env.MONGODB_URI || "mongodb://localhost/campaholicdb",
-        //     { useUnifiedTopology: true, useCreateIndex: true }
-        // );
-        //setting up connect-mongo store
-        //  const mongoStore = new MongoStore({ MONGODB_URI, collection:'session' });
-        
-        // // Define middleware here
-        
-        // app.use(require('express-session')({
-            //     secret: 'This is a secret',
-            //     cookie: {
-                //         maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
-                //     },
-                //     store: store
-                // }));
-                
-                
+    //setting up connect-mongo store
+    //  const mongoStore = new MongoStore({ MONGODB_URI, collection:'session' });
+    
+    // // Define middleware here
+    
+    // app.use(require('express-session')({
+        //     secret: 'This is a secret',
+        //     cookie: {
+            //         maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
+            //     },
+            //     store: store
+            // }));
+            
+            
 app.use(routes);
 mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://admin:password12345@cluster0.3dinq.mongodb.net/campaholicdb?retryWrites=true&w=majority");
 
