@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react";
+// import axios from "axios";
 import {
   Button,
   Col,
@@ -10,28 +10,9 @@ import {
 } from "react-bootstrap";
 import "../styles/Search.css";
 
-import API from "../utils/API";
+// import API from "../utils/API";
 
 export const Search = () => {
-
-  const [stateCode, setStateCode] = useState("");
-  const [stateCardList, setStateCardList] = useState("");
-
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    const baseUrl = "https://ridb.recreation.gov/api/v1/recareas?";
-    const limit = "limit=10";
-    const full = "&full=true"
-    const apiKey = "&apikey=aa8846cd-9998-4fc2-91d0-bfca54269cfd";
-    const state = `&state=${stateCode}`;
-    const apiUrl = baseUrl + limit + full + state + apiKey;
-
-    console.log(apiUrl)
-
-    
-    
-
-  }
 
   return (
     <div
@@ -50,7 +31,7 @@ export const Search = () => {
         </InputGroup>
       </div>
       <div id="dropdownsearch">
-        <Form onSubmit = {(e)=>handleSearchSubmit(e)}>
+        <Form>
           <Form.Row className="align-items-center">
             <Col xs="auto" className="my-1">
               <Form.Label
@@ -65,7 +46,7 @@ export const Search = () => {
                 className="mr-sm-2"
                 id="inlineFormCustomSelect"
                 custom
-                onChange={(e) => { setStateCode(e.target.value) }}>
+               >
                 <option value="0">Choose...</option>
                 <option value="1">AK</option>
                 <option value="2">AL</option>
