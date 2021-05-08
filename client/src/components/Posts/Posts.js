@@ -12,8 +12,7 @@ import API from "../../utils/API";
 // identifiers.
 // Right now will work on getting the home page done so I have material
 
-function Posts({ posts }) {
-console.log(posts);
+function Posts({ post }) {
 
   // Setup our post's state
   const [posts, setPosts] = useState([]);
