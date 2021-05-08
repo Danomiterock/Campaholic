@@ -1,7 +1,8 @@
 const express = require("express");
 
 const session = require("express-session");
-const connectStore = require("connect-mongo");
+// const MongoStore = require("connect-mongo")(express);
+const MongoDBStore = require('connect-mongodb-session')(session);
 
 
 
@@ -11,6 +12,11 @@ const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
 
+let store = new MongoDBStore({
+    uri: process.env.MONGODB_URI || "mongodb://localhost/campaholicdb",
+    collection: 'session'
+});
+
 const cors = require('cors');
 const PORT = process.env.PORT || 3001;
 
@@ -19,39 +25,31 @@ if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
 }
 app.use(cors());
-
+store.on("error",(err) => {
+    console.log(err)
+})
 
 // Connect to the Mongo DB
-mongoose.connect(
-    process.env.MONGODB_URI || "mongodb://localhost/campaholicdb",
-    { useUnifiedTopology: true, useCreateIndex: true }
-);
+// mongoose.connect(
+//     process.env.MONGODB_URI || "mongodb://localhost/campaholicdb",
+//     { useUnifiedTopology: true, useCreateIndex: true }
+// );
 //setting up connect-mongo store
-const MongoStore = new MongoStore({ MONGODB_URI, collection:'session' });
+//  const mongoStore = new MongoStore({ MONGODB_URI, collection:'session' });
 
-// Define middleware here
+// // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
-const sess = {
-    secret: 'Super secret secret',
+app.use(require('express-session')({
+    secret: 'This is a secret',
     cookie: {
-        sameSite: true,
-        maxAge: 100000
+        maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
     },
-    resave: false,
-    saveUninitialized: true,
-    store: MongoStore({
-        mongooseConnection: mongoose.connection,
-        collection: "session",
+    store: store
+}));
 
-    })
-};
-//express session
-app.use(session(sess));
 
-// Add routes, both API and view
 app.use(routes);
 
 

@@ -14,33 +14,35 @@ module.exports = {
     },
     findOne: function (req, res) {
         db.User
-            .findOne({where: { username: req.body.username }})
+            .findOne({ where: { username: req.body.username } })
             .populate({
                 path: "posts"
             })
             .then(dbModel => res.json(dbModel))
     },
     create: async function (req, res) {
+        console.log(req.body);
         const { first_name, last_name, email, username, password } = req.body;
         try {
             const hashedPassword = await bcrypt.hash(password);
-
-            db.User
-                .create({
-                    first_name,
-                    last_name,
-                    username,
-                    password: hashedPassword,
-                    email,
-
-                }).then(dbModel => res.json(dbModel))
-
+           
             req.session.save(() => {
                 req.session.username = userData.username;
                 req.session.logged_in = true;
 
                 res.json({ user: userData, message: "You are now logged in!" });
             });
+
+            db.User
+                .create({
+                    first_name: first_name,
+                    last_name: last_name,
+                    username: username,
+                    password: hashedPassword,
+                    email: email,
+
+                }).then(dbModel => res.json(dbModel))
+
         } catch (err) {
             res.status(422).json(err)
         }

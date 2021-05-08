@@ -26,11 +26,11 @@ export const LoginSignup = () => {
   const signupHandler = (e) => {
     e.preventDefault();
     axios.post("/api/users", {
-      first_name,
-      last_name,
-      username,
-      email,
-      password
+      first_name: first_name,
+      last_name: last_name,
+      username: username,
+      email: email,
+      password: password
     }).then((res)=> {
       console.log(res)
     }).catch((err) =>{
@@ -56,7 +56,7 @@ export const LoginSignup = () => {
     <div className="loginpage">
       <CardDeck className="loginsignup">
         <Card className="LoginSignupCard">
-          <Form onSubmit={(event) => signupHandler(event)}>
+          <Form onSubmit={(event) => loginHandler(event)}>
             <h3>Sign In</h3>
 
             <div className="form-group">

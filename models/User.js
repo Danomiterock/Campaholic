@@ -16,7 +16,8 @@ const UserSchema = new Schema({
     {
         data: Buffer,
         contentType: String
-    }
+    },
+    required: false
   },
   email: {
     type: String,
@@ -34,7 +35,8 @@ const UserSchema = new Schema({
   },
   posts: [{
     type: Schema.Types.ObjectId,
-    ref: "post"
+    ref: "post",
+    required: false
   }]
 
 });
