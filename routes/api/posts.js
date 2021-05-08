@@ -6,8 +6,8 @@ router.route("/")
   .get(postsController.findAll)
   .post(postsController.create);
 
-  // router.route("/:id")
-  // .put(postsController.update)
+  router.route("/recent")
+  .get(postsController.findRecent)
   
 
 module.exports = router;
