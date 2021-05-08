@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
+import moment from "moment";
 
 
 // Trying to think of a way to setup the component
@@ -40,7 +41,7 @@ function Posts({ post }) {
             {console.log(post)}
             <div className="postheading">
               <p>{post.username}</p>
-              <p>Posted: {post.date}</p>
+              <p>Posted: {moment(post.date).format('MMMM Do YYYY, h:mm:ss a')}</p>
             </div>
             <div className="postmain">
               <img
