@@ -12,9 +12,8 @@ import API from "../../utils/API";
 // identifiers.
 // Right now will work on getting the home page done so I have material
 
-function Posts() {
-
-
+function Posts({ posts }) {
+console.log(posts);
 
   // Setup our post's state
   const [posts, setPosts] = useState([]);
@@ -38,7 +37,8 @@ function Posts() {
 
       {posts ? 
         posts.map((post) => (
-          <article className="postcard" key={post._id}>
+          <article className="postcard">
+            {console.log(post)}
             <div className="postheading">
               <p>{post.username}</p>
               <p>Posted: {post.date}</p>
@@ -56,11 +56,11 @@ function Posts() {
             <div className="submain">
               <p className="activities">Activities: </p>
               <ul>
-                <li>{post.activities}</li>
+                <li>{post.activities.map(activity => <h3 key={activity.title}>{activity.title}</h3>)}</li>
               </ul>
               <p className="friends">{post.username} is with:</p>
               <ul className="friendlist">
-                <li>{post.friends}</li>
+                <li>{post.friends.map(friend => <h3 key={friend.username}>{friend.username}</h3>)}</li>
               </ul>
             </div>
           </article>

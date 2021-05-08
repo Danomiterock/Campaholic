@@ -5,7 +5,7 @@ const db = require("../models");
 
 mongoose.connect(
   process.env.MONGODB_URI ||
-  "mongodb://localhost/campaholicdb"
+  "mongodb+srv://admin:password12345@cluster0.3dinq.mongodb.net/campaholicdb?retryWrites=true&w=majority"
 );
 
 const PostSeed = [{
