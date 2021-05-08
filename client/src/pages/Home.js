@@ -2,11 +2,12 @@ import React, {useState, useEffect } from "react";
 import Jumbotron from "../components/Jumbotron";
 import Posts from "../components/Posts";
 import Footer from "../components/Footer";
+import axios from "axios";
 
 export const Home = () => {
   const [recentPosts, setRecentPosts] = useState();
 
-  useEffect(() => this.get("api/posts/recent").then(data => setRecentPosts(data)), []) 
+  useEffect(() => {axios.get("api/posts/recent").then(data => setRecentPosts(data))}, []) 
   
   
   
