@@ -1,6 +1,7 @@
 const db = require("../models");
 const bcrypt = require("bcrypt")
 const router = require("express").Router();
+
 // Defining methods for the usersController
 // Passing empty object will return all documents
 // In the Users collection
@@ -8,7 +9,7 @@ const router = require("express").Router();
 module.exports = {
     findAll: function (req, res) {
         db.User
-            .find({})
+            .find(req.body)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
@@ -87,7 +88,10 @@ module.exports = {
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     }
+
 }
+
+
 
 //need to find one where the username=username for login function. We will check to see if the username of the post is = to the req.session.username.
 //the req.session.username will store a user that has logged in to LocalStorage and will terminate at the end of the session.
