@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./results.css";
-import NewPost from "../NewPost";
+// import NewPost from "../NewPost";
 import API from "../../utils/API";
 
 function Result(props) {
@@ -22,22 +22,36 @@ function Result(props) {
   // In the campaholic mongoDB database
 
   // Add the new post component when user clicks "Create New Post"
-  const newPostHTML = () => {
-    const postHTML = (
-      <>
-        <NewPost
-        name="comment"
-        value={comment}
-        onChange={handleInputChange}
-        />
-        <button type="submit" name="newpost" disabled={!comment}>
-          Post
-        </button>
-      </>
-    );
+  // const newPostHTML = () => {
+  //   const postHTML = (
+  //     <>
+  //       <NewPost
+  //       name="comment"
+  //       value={comment}
+  //       onChange={handleInputChange}
+  //       />
+  //       <button type="submit" name="newpost" disabled={!comment}>
+  //         Post
+  //       </button>
+  //     </>
+  //   );
 
-    setNewPost(postHTML);
-  };
+  //   setNewPost(postHTML);
+  // };
+
+  // When the form is submitted, use the API.saveBook method to save the book data
+  // Then reload books from the database
+
+  function handlePostFormSubmit(event) {
+    event.preventDefault();
+    API.savePost({
+      username: "test",
+      location: props.location,
+      description: props.description,
+      images: [{ url: props.src }],
+      activities: [{ title: props.activities }],
+    }).catch((err) => console.log(err));
+  }
 
   return (
     <>
@@ -52,7 +66,7 @@ function Result(props) {
         <li className="reclist">{[props.events]}</li>
       </ul>
       {newPost}
-      <button type="submit" onClick={newPostHTML}>
+      <button type="submit" onClick={handlePostFormSubmit}>
         Create New Post
       </button>
     </>

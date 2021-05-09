@@ -1,58 +1,83 @@
 import React, { useState } from "react";
 
-import {
-  Button,
-  Card,
-  CardDeck,
-  Form,
-  FormLabel,
-} from "react-bootstrap";
+import { Button, Card, CardDeck, Form, FormLabel } from "react-bootstrap";
 import "../styles/LoginSignup.css";
-import axios from "axios";
-
+import API from "../utils/API";
 
 export const LoginSignup = () => {
+  // const [first_name, setFirstName] = useState("");
+  // const [last_name, setLastName] = useState("");
+  // const [username, setUsername] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [loginEmail, setLoginEmail] = useState("");
+  // const [loginPassword, setLoginPassword] = useState("");
+  const [formObject, setFormObject] = useState({});
 
-  const [first_name, setFirstName] = useState("");
-  const [last_name, setLastName] = useState("");
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [loginEmail, setLoginEmail] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
+  // console.log(first_name);
 
-  console.log(first_name);
+  // const signupHandler = (e) => {
+  //   e.preventDefault();
+  //   const user = {
+  //     first_name: first_name,
+  //     last_name: last_name,
+  //     username: username,
+  //     email: email,
+  //     password: password,
+  //   };
+  //   axios
+  //     .post("/api/users", user)
+  //     .then((res) => {
+  //       console.log(res);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
-  const signupHandler = (e) => {
-    e.preventDefault();
-    const user = {first_name, last_name, username, email, password};
-    axios.post("/api/users", user)
-    .then((res)=> {
-      console.log(res)
-    }).catch((err) =>{
-      console.log(err)
-    })
+  // const loginHandler = (e) => {
+  //   e.preventDefault();
+  //   axios
+  //     .get("/api/login", {
+  //       loginEmail: loginEmail,
+  //       loginPassword: loginPassword,
+  //     })
+  //     .then((res) => {
+  //       console.log(res);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
+  // Handles updating component state when the user types into the input field
+  function handlePostInputChange(event) {
+    const { name, value } = event.target;
+    setFormObject({ ...formObject, [name]: value });
   }
-  const loginHandler = (e) => {
-    e.preventDefault();
-    axios.get("/api/login", {
-     
-      loginEmail,
-      loginPassword
-    }).then((res)=> {
-      console.log(res)
-    }).catch((err) =>{
-      console.log(err)
-    })
 
+  function handlePostFormSubmit(event) {
+    event.preventDefault();
+    API.saveUser({
+      first_name: formObject.first_name,
+      last_name: formObject.last_name,
+      username: formObject.username,
+      email: formObject.email,
+      password: formObject.password,
+    })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   return (
     <div className="loginpage">
       <CardDeck className="loginsignup">
         <Card className="LoginSignupCard">
-          <Form onSubmit={(e) => loginHandler(e)}>
+          <Form >
             <h3>Sign In</h3>
 
             <div className="form-group">
@@ -61,7 +86,9 @@ export const LoginSignup = () => {
                 type="email"
                 className="form-control"
                 placeholder="Enter email"
-                onChange={(e) => { setLoginEmail(e.target.value) }}
+                // onChange={(e) => {
+                //   setLoginEmail(e.target.value);
+                // }}
               />
             </div>
 
@@ -71,7 +98,9 @@ export const LoginSignup = () => {
                 type="password"
                 className="form-control"
                 placeholder="Enter password"
-                onChange={(e) => { setLoginPassword(e.target.value) }}
+                // onChange={(e) => {
+                //   setLoginPassword(e.target.value);
+                // }}
               />
             </div>
 
@@ -101,7 +130,7 @@ export const LoginSignup = () => {
 
         <div>
           <Card className="LoginSignupCard">
-            <Form onSubmit={(e) => signupHandler(e)}>
+            <Form onSubmit={handlePostFormSubmit}>
               <h3>Sign Up</h3>
 
               <div className="form-group">
@@ -110,7 +139,8 @@ export const LoginSignup = () => {
                   type="text"
                   className="form-control"
                   placeholder="First name"
-                  onChange={(e) => { setFirstName(e.target.value) }}
+                  name="first_name"
+                  onChange={handlePostInputChange}
                 />
               </div>
 
@@ -120,7 +150,8 @@ export const LoginSignup = () => {
                   type="text"
                   className="form-control"
                   placeholder="Last name"
-                  onChange={(e) => { setLastName(e.target.value) }}
+                  name="last_name"
+                  onChange={handlePostInputChange}
                 />
               </div>
               <div className="form-group">
@@ -129,7 +160,8 @@ export const LoginSignup = () => {
                   type="text"
                   className="form-control"
                   placeholder="Enter Username"
-                  onChange={(e) => { setUsername(e.target.value) }}
+                  name="username"
+                  onChange={handlePostInputChange}
                 />
               </div>
 
@@ -139,7 +171,8 @@ export const LoginSignup = () => {
                   type="email"
                   className="form-control"
                   placeholder="Enter email"
-                  onChange={(e) => { setEmail(e.target.value) }}
+                  name="email"
+                  onChange={handlePostInputChange}
                 />
               </div>
 
@@ -149,7 +182,8 @@ export const LoginSignup = () => {
                   type="password"
                   className="form-control"
                   placeholder="Enter password"
-                  onChange={(e) => { setPassword(e.target.value) }}
+                  name="password"
+                  onChange={handlePostInputChange}
                 />
               </div>
 

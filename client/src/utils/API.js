@@ -20,6 +20,10 @@ export default {
   savePost: function (postData) {
     return axios.post("/api/posts", postData);
   },
+  // Saves a book to the database
+  saveUser: function(userData) {
+    return axios.post("/api/users", userData);
+  },
   // Sends a GET request to our reverse proxy Heroku server.
   // Heroku server sends a CORS-enabled GET request
   // through https and returns data to localhost:3000

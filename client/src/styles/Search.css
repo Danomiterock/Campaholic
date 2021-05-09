@@ -9,5 +9,26 @@
 
 }
 #fieldsearch{
-    padding:45px;
+    padding: 45px;
+}
+
+.result {
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+    background-color: antiquewhite;
+    /* padding: 3em; */
+    margin: 13em;
+    align-items: center;
+    border: 4px solid rgb(110, 77, 34);
+    border-radius: 4px 4px;
+}
+
+.result button {
+    width: 60%;
+}
+
+.image {
+    border: 2px solid rgb(255, 209, 150);
+    border-radius: 2px 2px;
 }
