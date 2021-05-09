@@ -182,7 +182,7 @@ export const Search = () => {
             // in that chosen state
             if (stateCode === recStateCode) {
               return (
-                <article className="result" key={result.RecAreaID}>
+                <section key={result.RecAreaID}>
                   <Result
                     key={result.RecAreaID}
                     location={result.RecAreaName}
@@ -191,8 +191,9 @@ export const Search = () => {
                     state={recStateCode}
                     activities={recActivities}
                     events={recEvents}
+                    className="result"
                   />
-                </article>
+                </section>
               );
             }
 
