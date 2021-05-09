@@ -19,9 +19,18 @@ module.exports = {
       })
       .then((dbModel) => res.json(dbModel));
   },
-  create: function (req, res) {
+  create: async function (req, res) {
     console.log(req.body);
-    db.User.create(req.body)
+       const hashedPassword = await bcrypt.hash(req.body.password, 10);
+    
+    let newUser = {
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        username: req.body.username,
+        email: req.body.email,
+        password: hashedPassword
+    }
+    db.User.create(newUser)
     .then((dbModel) => res.json(dbModel))
     .catch((err) => res.status(422).json(err));
     // const { first_name, last_name, email, username, password } = req.body;

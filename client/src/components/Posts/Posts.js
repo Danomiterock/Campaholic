@@ -1,35 +1,15 @@
 
-import React, { useState, useEffect } from "react";
-import API from "../../utils/API";
+import React from "react";
+
 import moment from "moment";
 
 
-// Trying to think of a way to setup the component
-// to only render the user's own posts to their profile page
-// Using a conditional like if(username === "username"){etc.}
-// Would become a major security issue if someone could manipulate
-// the logic to display a different user's posts on their page.
-// This means that the best route to take is a comparison of unique
-// identifiers.
-// Right now will work on getting the home page done so I have material
 
-function Posts({ post }) {
 
-  // Setup our post's state
-  const [posts, setPosts] = useState([]);
-  // //   const [formObject, setFormObject] = useState({});
 
-  // Load all posts and store them with setPosts
-  useEffect(() => {
-    loadPosts();
-  }, []);
+function Posts( {posts} ) {
 
-  // Loads all posts and sets them to posts
-  function loadPosts() {
-    API.getPosts()
-      .then((res) => setPosts(res.data))
-      .catch((err) => console.log(err));
-  }
+
 
   return (
     <section className="posts">
