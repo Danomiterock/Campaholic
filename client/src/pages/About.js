@@ -72,7 +72,7 @@ export const About = () => {
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
                 <br />
-                <a variant="primary" href="https://youtu.be/dQw4w9WgXcQ">
+                <a variant="primary" href="https://www.youtube.com/watch_popup?v=dQw4w9WgXcQ&vq+hd1080">
                   View Portfolio
                 </a>
               </Card.Text>
