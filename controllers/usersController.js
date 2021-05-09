@@ -22,19 +22,21 @@ module.exports = {
             .then(dbModel => res.json(dbModel))
     },
     create: async function (req, res) {
-        console.log(req.body);
-        const { first_name, last_name, email, username, password } = req.body;
-        try {
-            const hashedPassword = await bcrypt.hash(password);
+        
+     
+            try {
+                console.log(req.body);
+            const { first_name, last_name, email, username, password } = req.body;
+             const hashedPassword = await bcrypt.hash(password, 10);
            
-            req.session.save(() => {
-                req.session.username = userData.username;
-                req.session.logged_in = true;
+            // req.session.save(() => {
+            //     req.session.username = userData.username;
+            //     req.session.logged_in = true;
 
-                res.json({ user: userData, message: "You are now logged in!" });
-            });
+            //     res.json({ user: userData, message: "You are now logged in!" });
+            // });
 
-            db.User
+            let dbModel = await db.User
                 .create({
                     first_name: first_name,
                     last_name: last_name,
@@ -42,18 +44,25 @@ module.exports = {
                     password: hashedPassword,
                     email: email,
 
-                }).then(dbModel => res.json(dbModel))
-
+                }).then(()=>{
+                    req.session.save(() => {
+                        req.session.username = userData.username;
+                        req.session.logged_in = true;
+        
+                        res.json({ user: userData, message: "You are now logged in!" });
+                    });
+                })
+         return (res.json(dbModel))
         } catch (err) {
-            res.status(422).json(err)
+            console.log(err);
         }
 
-
+      
     },
 
     login: async function (req, res) {
         try {
-            const userData = await User.findOne({ where: { username: req.body.username } });
+            const userData = await User.findOne({ where: { email: req.body.email } });
 
             if (!userData) {
                 res

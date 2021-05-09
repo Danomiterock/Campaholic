@@ -23,12 +23,12 @@ export const LoginSignup = () => {
 
   console.log(first_name);
 
-  const signupHandler = (e) => {
+  const signupHandler = async (e) => {
     e.preventDefault();
     const user = {first_name, last_name, username, email, password};
-    axios.post("/api/users", user)
+    await axios.post("/api/users", user)
     .then((res)=> {
-      console.log(res)
+      console.log(res.data)
     }).catch((err) =>{
       console.log(err)
     })
@@ -38,8 +38,9 @@ export const LoginSignup = () => {
     e.preventDefault();
     axios.get("/api/login", {
      
-      loginEmail,
-      loginPassword
+      email: loginEmail,
+      password: loginPassword
+      
     }).then((res)=> {
       console.log(res)
     }).catch((err) =>{
