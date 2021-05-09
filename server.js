@@ -10,8 +10,6 @@ const PORT = process.env.PORT || 3001;
 // const MongoStore = require("connect-mongo")(express);
 // const MongoDBStore = require('connect-mongodb-session')(session);
 
-
-
 // const { MONGODB_URI } = require('./config/database')
 
 

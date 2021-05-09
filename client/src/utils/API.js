@@ -20,32 +20,21 @@ export default {
   savePost: function (postData) {
     return axios.post("/api/posts", postData);
   },
-  searchAreas: function (stateCode) {
-    // Base URL
-    var baseUrl = "https://ridb.recreation.gov/api/v1/recareas?";
+  // Saves a book to the database
+  saveUser: function(userData) {
+    return axios.post("/api/users", userData);
+  },
+  // Sends a GET request to our reverse proxy Heroku server.
+  // Heroku server sends a CORS-enabled GET request
+  // through https and returns data to localhost:3000
+  // These are search results that will display on the Search page
+  searchAreas: function () {
+    // Reverse proxy url
+    // Allows GET request to override CORS from Heroku
+    // server uses CORS to connect to Recreation RIDB API
+    const baseUrl =
+      "https://arcane-retreat-20879.herokuapp.com/api/v1/recareas";
 
-    // limit number of records
-    var limit = "limit=10";
-
-    // Full data response
-    var full = "&full=true";
-
-    // User state query
-    var state = `&state=${stateCode}`;
-
-    // Will need to process.env this
-    var apiKey = "&apikey=aa8846cd-9998-4fc2-91d0-bfca54269cfd";
-
-    var apiUrl = baseUrl + limit + full + state + apiKey;
-
-    // Send axios get request
-    axios
-      .get(apiUrl, {
-        mode: 'cors'
-      })
-      .then((res) => {
-        const data = res.data;
-        console.log(data);
-      });
+    return axios.get(baseUrl);
   },
 };
