@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 // import axios from "axios";
 import {
   Button,
@@ -9,7 +9,7 @@ import {
   // MDBIcon,
 } from "react-bootstrap";
 import Result from "../components/Results";
-import CreatePost from "../components/NewPost";
+// import CreatePost from "../components/NewPost";
 import "../styles/Search.css";
 import API from "../utils/API";
 
@@ -19,7 +19,7 @@ export const Search = () => {
 
   // Store the user's selected state
   const [stateCode, setStateCode] = useState("");
-  const [stateCardList, setStateCardList] = useState("");
+  // const [stateCardList, setStateCardList] = useState("");
 
   // Loads all posts and sets them to posts
   function loadResults() {
