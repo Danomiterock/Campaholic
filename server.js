@@ -49,7 +49,10 @@ if (process.env.NODE_ENV === "production") {
             
             
 app.use(routes);
-mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://admin:password12345@cluster0.3dinq.mongodb.net/campaholicdb?retryWrites=true&w=majority");
+mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://admin:password12345@cluster0.3dinq.mongodb.net/campaholicdb?retryWrites=true&w=majority", 
+{useNewUrlParser: true,
+useUnifiedTopology: true },
+);
 
 
 //If no API routes are hit, send the React app

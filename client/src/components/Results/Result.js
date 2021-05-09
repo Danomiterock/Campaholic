@@ -4,16 +4,16 @@ import "./results.css";
 import API from "../../utils/API";
 
 function Result(props) {
-  const [newPost, setNewPost] = useState(null);
-  const [formObject, setFormObject] = useState({});
-  const [comment, setComment] = useState("");
+  const [newPost] = useState(null);
+  // const [formObject, setFormObject] = useState({});
+  // const [setComment] = useState("");
 
-  const handleInputChange = (event) => {
-    // Destructure the name and value properties off of event.target
-    // Update the appropriate state
-    const { value } = event.target;
-    setComment(value);
-  };
+  // const handleInputChange = (event) => {
+  //   // Destructure the name and value properties off of event.target
+  //   // Update the appropriate state
+  //   const { value } = event.target;
+  //   setComment(value);
+  // };
 
   // Return the Search results with a button to create a new post
   // Clicking on "Create New Post" will update HTML and display a comment section
