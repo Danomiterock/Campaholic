@@ -8,14 +8,6 @@ function Result(props) {
   const [formObject, setFormObject] = useState({});
   const [comment, setComment] = useState("");
 
-  // // Handles updating component state when the user types into the input field
-  // function handlePostInputChange(event) {
-  //   const target = event.target;
-  //   const value = target.innerHTML;
-  //   const name = target.name;
-  //   setFormObject({ [name]: value });
-  // }
-
   const handleInputChange = (event) => {
     // Destructure the name and value properties off of event.target
     // Update the appropriate state
