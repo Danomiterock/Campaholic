@@ -9,14 +9,24 @@ import {
   Button,
 } from "react-bootstrap";
 import "../styles/Profile.css";
+import auth from "../utils/auth";
 
-
-export const Profile = () => {
+export const Profile = props => {
   
   return (
+      <>
     <div className="profile">
       <div className="headerProfile">
         <h1 className="brownColor textCenter font-60 bold-700">Profile</h1>
+        <button
+        onClick={() => {
+          auth.logout(() => {
+            props.history.push("/LoginSignup");
+          });
+        }}
+      >
+        Logout
+      </button>
         <Container className="profilePic">
           <Row>
             <img
@@ -81,6 +91,7 @@ export const Profile = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 export default Profile;

@@ -1,10 +1,21 @@
-const withAuth = (req, res, next) => {
-    // If the user is not logged in, redirect the request to the login route
-    if (!req.session.logged_in) {
-      res.redirect('/LoginSignup');
-    } else {
-      next();
+class Auth {
+    constructor() {
+      this.authenticated = false;
     }
-  };
   
-  module.exports = withAuth;
+    login(cb) {
+      this.authenticated = true;
+      cb();
+    }
+  
+    logout(cb) {
+      this.authenticated = false;
+      cb();
+    }
+  
+    isAuthenticated() {
+      return this.authenticated;
+    }
+  }
+  
+  export default new Auth();

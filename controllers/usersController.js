@@ -87,37 +87,3 @@ module.exports = {
   },
 };
 
-//need to find one where the username=username for login function. We will check to see if the username of the post is = to the req.session.username.
-//the req.session.username will store a user that has logged in to LocalStorage and will terminate at the end of the session.
-
-//create will make a new user and hash a password for them... we will need to check the password with bcrypt.compare when the created user returns to log in.
-// router.post("/login", async (req, res) => {
-//     try {
-//         const userData = await User.findOne({ where: { email: req.body.email } });
-
-//         if (!userData) {
-//             res
-//                 .status(400)
-//                 .json({ message: "Incorrect email or password, please try again" });
-//             return;
-//         }
-
-//         const validPassword = await userData.checkPassword(req.body.password);
-
-//         if (!validPassword) {
-//             res
-//                 .status(400)
-//                 .json({ message: "Incorrect email or password, please try again" });
-//             return;
-//         }
-
-//         req.session.save(() => {
-//             req.session.user_id = userData.id;
-//             req.session.logged_in = true;
-
-//             res.json({ user: userData, message: "You are now logged in!" });
-//         });
-//     } catch (err) {
-//         res.status(400).json(err);
-//     }
-// });

@@ -39,25 +39,7 @@ const cors = require('cors');
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
 }
-// app.use(cors());
-// store.on("error",(err) => {
-    //     console.log(err)
-    // })
-    
-    // Connect to the Mongo DB
-    //setting up connect-mongo store
-    //  const mongoStore = new MongoStore({ MONGODB_URI, collection:'session' });
-    
-    // // Define middleware here
-    
-    // app.use(require('express-session')({
-        //     secret: 'This is a secret',
-        //     cookie: {
-            //         maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
-            //     },
-            //     store: store
-            // }));
-            
+
             
 app.use(routes);
 mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://admin:password12345@cluster0.3dinq.mongodb.net/campaholicdb?retryWrites=true&w=majority", 
@@ -67,9 +49,9 @@ useUnifiedTopology: true },
 
 
 //If no API routes are hit, send the React app
-// app.use(function (req, res) {
-//     res.sendFile(path.join(__dirname, "client/build/index.html"));
-// });
+app.use(function (req, res) {
+    res.sendFile(path.join(__dirname, "client/build/index.html"));
+});
 
 // Start the API server
 app.listen(PORT, function () {
