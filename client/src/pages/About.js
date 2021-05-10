@@ -12,8 +12,7 @@ export const About = () => {
             <Card.Body>
               <Card.Title>Myrla Flores</Card.Title>
               <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+                Myrla's work experience is in Case Management and is always willing to take up on new challenges and problem solving.
                 <br />
                 <a
                   variant="primary"
@@ -32,8 +31,8 @@ export const About = () => {
             <Card.Body>
               <Card.Title>Triston Burns</Card.Title>
               <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+              Triston Burns is an aspiring React web developer from Tucson, Arizona.
+              He has experience in data analysis, data collection, and working with third-part APIs.
                 <br />
                 <a
                   variant="primary"
