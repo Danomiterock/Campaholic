@@ -8,14 +8,12 @@ import LoginSignup from "./pages/LoginSignup";
 import Search from "./pages/Search";
 import About from "./pages/About";
 import Profile from "./pages/Profile";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./styles/style.css";
+import {ProtectedRoute} from './pages/ProtectedRoute'
 
 function App() {
-  // const handleFormSubmit = (event) => {
-  //   event.preventDefault();
-  //   API.searchAreas();
-  // };
+ 
 
   return (
     <Router>
@@ -26,11 +24,14 @@ function App() {
             <NavList />
           </div>
         </header>
+        <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/LoginSignup" component={LoginSignup} />
         <Route exact path="/Search" component={Search} />
         <Route exact path="/About" component={About} />
-        <Route exact path="/Profile" component={Profile} />
+        <ProtectedRoute exact path="/Profile" component={Profile} />
+        <Route path="*" component={() => "404 NOT FOUND"} />
+        </Switch>
       </div>
     </Router>
   );
