@@ -23,11 +23,7 @@ var store = new MongoDBStore({
     store: store,
     resave: true,
     saveUninitialized: true
-  }));
-
-  app.get('/', function(req, res) {
-    res.send('' + JSON.stringify(req.session));
-  });
+  }))
 
 
 app.use(express.urlencoded({ extended: true }));
