@@ -12,7 +12,7 @@ import "../styles/Profile.css";
 import auth from "../utils/auth";
 
 export const Profile = props => {
-  
+
   return (
       <>
     <div className="profile">
