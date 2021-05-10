@@ -20,30 +20,29 @@ module.exports = {
       .then((dbModel) => res.json(dbModel));
   },
   create: async function (req, res) {
-    console.log(req.body);
-       const hashedPassword = await bcrypt.hash(req.body.password, 10);
-    
-    let newUser = {
-        first_name: req.body.first_name,
-        last_name: req.body.last_name,
-        username: req.body.username,
-        email: req.body.email,
-        password: hashedPassword
-    }
-    db.User.create(newUser)
-    .then((dbModel) => res.json(dbModel))
-    .catch((err) => res.status(422).json(err));
-    // const { first_name, last_name, email, username, password } = req.body;
-    // try {
-    //   const hashedPassword = await bcrypt.hash(password);
+    try{
+  console.log(req.body);
+     const hashedPassword = await bcrypt.hash(req.body.password, 10);
+  
+  let newUser = {
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      username: req.body.username,
+      email: req.body.email,
+      password: hashedPassword
+  }
+  db.User.create(newUser)
+  req.session.save(() => {
+    req.session.username = newUser.username;
+    req.session.logged_in = true;
 
-    //   req.session.save(() => {
-    //     req.session.username = userData.username;
-    //     req.session.logged_in = true;
+    res.json({ user: newUser, message: "You are now logged in!" });
+  })
+} catch (err){
+  res.status(422).json(err)
+}
 
-    //     res.json({ user: userData, message: "You are now logged in!" });
-    //   });
-  },
+},
 
   login: async function (req, res) {
     try {
