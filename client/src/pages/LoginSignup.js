@@ -1,54 +1,14 @@
 import React, { useState } from "react";
+import auth from "../utils/auth";
+
 
 import { Button, Card, CardDeck, Form, FormLabel } from "react-bootstrap";
 import "../styles/LoginSignup.css";
 import API from "../utils/API";
 
-export const LoginSignup = () => {
-  // const [first_name, setFirstName] = useState("");
-  // const [last_name, setLastName] = useState("");
-  // const [username, setUsername] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [loginEmail, setLoginEmail] = useState("");
-  // const [loginPassword, setLoginPassword] = useState("");
+export const LoginSignup = props => {
+  
   const [formObject, setFormObject] = useState({});
-
-  // console.log(first_name);
-
-  // const signupHandler = (e) => {
-  //   e.preventDefault();
-  //   const user = {
-  //     first_name: first_name,
-  //     last_name: last_name,
-  //     username: username,
-  //     email: email,
-  //     password: password,
-  //   };
-  //   axios
-  //     .post("/api/users", user)
-  //     .then((res) => {
-  //       console.log(res);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
-
-  // const loginHandler = (e) => {
-  //   e.preventDefault();
-  //   axios
-  //     .get("/api/login", {
-  //       loginEmail: loginEmail,
-  //       loginPassword: loginPassword,
-  //     })
-  //     .then((res) => {
-  //       console.log(res);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
 
   // Handles updating component state when the user types into the input field
   function handlePostInputChange(event) {
@@ -86,9 +46,7 @@ export const LoginSignup = () => {
                 type="email"
                 className="form-control"
                 placeholder="Enter email"
-                // onChange={(e) => {
-                //   setLoginEmail(e.target.value);
-                // }}
+                
               />
             </div>
 
@@ -98,9 +56,6 @@ export const LoginSignup = () => {
                 type="password"
                 className="form-control"
                 placeholder="Enter password"
-                // onChange={(e) => {
-                //   setLoginPassword(e.target.value);
-                // }}
               />
             </div>
 
@@ -120,9 +75,9 @@ export const LoginSignup = () => {
               </div>
             </div>
 
-            <Button type="submit" className="btn btn-primary btn-block :hover">
-              Submit
-            </Button>
+            <Button type="submit" className="btn btn-primary btn-block :hover" onClick={()=>{auth.login(()=>{props.history.push('/Profile');});}}>
+            Login
+          </Button>
           </Form>
         </Card>
 
@@ -187,9 +142,9 @@ export const LoginSignup = () => {
                 />
               </div>
 
-              <Button type="submit" className="btn btn-primary btn-block">
-                Sign Up
-              </Button>
+              <Button type="submit" className="btn btn-primary btn-block :hover" onClick={()=>{auth.login(()=>{props.history.push('/Profile');});}}>
+              SignUp
+            </Button>
             </Form>
           </Card>
         </div>
