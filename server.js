@@ -10,7 +10,7 @@ const MongoDBStore = require('connect-mongodb-session')(session);
 
 
 var store = new MongoDBStore({
-    uri: 'mongodb://localhost/campaholicdb',
+    uri: 'mongodb+srv://admin:password12345@cluster0.3dinq.mongodb.net/campaholicdb?retryWrites=true&w=majority',
     collection: 'session'
   });
 
