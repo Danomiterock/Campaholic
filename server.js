@@ -5,19 +5,28 @@ const app = express();
 
 const PORT = process.env.PORT || 3001;
 
+const session = require("express-session");
+const MongoDBStore = require('connect-mongodb-session')(session);
 
-// const session = require("express-session");
-// const MongoStore = require("connect-mongo")(express);
-// const MongoDBStore = require('connect-mongodb-session')(session);
+var store = new MongoDBStore({
+    uri: 'mongodb://localhost/campaholicdb',
+    collection: 'session'
+  });
 
-// const { MONGODB_URI } = require('./config/database')
+  app.use(require('express-session')({
+    secret: 'This is a secret',
+    cookie: {
+      maxAge: 120000 
+    },
+    store: store,
+    resave: true,
+    saveUninitialized: true
+  }));
 
+  app.get('/', function(req, res) {
+    res.send('' + JSON.stringify(req.session));
+  });
 
-// let store = new MongoDBStore({
-//     uri: process.env.MONGODB_URI || "mongodb://localhost/campaholicdb",
-//     collection: 'session'
-// });
-// Connect to the Mongo DB
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
