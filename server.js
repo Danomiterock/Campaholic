@@ -8,10 +8,12 @@ const PORT = process.env.PORT || 3001;
 const session = require("express-session");
 const MongoDBStore = require('connect-mongodb-session')(session);
 
+
 var store = new MongoDBStore({
     uri: 'mongodb://localhost/campaholicdb',
     collection: 'session'
   });
+
 
   app.use(require('express-session')({
     secret: 'This is a secret',

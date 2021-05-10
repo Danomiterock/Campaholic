@@ -69,10 +69,9 @@ export const About = () => {
             <Card.Body>
               <Card.Title>Wes Howard</Card.Title>
               <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+                Wes has high level personal skills and training, as well a passion for coding
                 <br />
-                <a variant="primary" href="https://www.youtube.com/watch_popup?v=dQw4w9WgXcQ&vq+hd1080">
+                <a variant="primary" href="https://biggronn.github.io/PortfolioRWH/">
                   View Portfolio
                 </a>
               </Card.Text>
